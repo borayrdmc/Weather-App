@@ -1,29 +1,29 @@
-export interface WeatherDescription{
+export interface WeatherDescriptionTypes{
     id:number;
     main:string;
     description:string;
     icon:string;
 }
-export interface CurrentWeather{
+export interface CurrentWeatherTypes{
     dt:number;
     temp:number;
     feels_like:number;
     humidity:number;
     wind_speed:number;
-    weather:WeatherDescription[];
+    weather:WeatherDescriptionTypes[];
 }
-export interface DailyWeather{
+export interface DailyWeatherTypes{
     dt:number;
     summary?:string;
     temp:{day:number,min:number,max:number}
-    weather:WeatherDescription[];
+    weather:WeatherDescriptionTypes[];
     uvi:number;
     pop:number;
 }
-export interface WeatherData{
+export interface WeatherDataTypes{
     lat:number;
     lon:number;
     timezone:string;
-    current:CurrentWeather;
-    daily:DailyWeather[]; 
+    current:CurrentWeatherTypes;
+    daily:DailyWeatherTypes[]; 
 }
