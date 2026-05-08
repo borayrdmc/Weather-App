@@ -3,7 +3,7 @@ import { WeatherDataTypes } from "@/types/WeatherTypes";
 const API_KEY=process.env.OPENWEATHER_API_KEY;
 const BASE_URL= "https://api.openweathermap.org/data/3.0";
 
-export const getWeatherData= async (lat:number,lon:number): Promise<WeatherDataTypes>=>{
+export const WeatherDataService= async (lat:number,lon:number): Promise<WeatherDataTypes>=>{
 
     if(!API_KEY){
         throw new Error("API key undefined!");
@@ -15,5 +15,7 @@ export const getWeatherData= async (lat:number,lon:number): Promise<WeatherDataT
         throw new Error(`${response.status} Error: ${response.statusText}`);
     }
 
-   return await response.json() as WeatherDataTypes;
+   const weatherData = await response.json() as WeatherDataTypes;
+
+   return weatherData;
 }
