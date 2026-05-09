@@ -3,7 +3,7 @@ import { useState } from "react";
 import { WeatherDataTypes } from "@/types/WeatherTypes";
 import { SearchBoxTypes } from "@/types/SearchBoxTypes";
 
-function SearchBox({setWeatherOnSearch}: SearchBoxTypes){
+function SearchBox({setWeatherOnSearch}: SearchBoxTypes){ //Searchbox takes a function as parameter and this function has to follow search box type rules
 
     const [cityNameInput,setCityNameInput]=useState("");
     const [isInputLoading,setIsInputLoading]=useState(false);
@@ -11,26 +11,30 @@ function SearchBox({setWeatherOnSearch}: SearchBoxTypes){
 
     const handleSearch= async ()=>{
         
-        if (!cityNameInput.trim()){return;}
+        if (!cityNameInput.trim()){
+            setError("City name can't be blank."); //If entry is empty 
+            return;
+        } 
 
         setIsInputLoading(true);
         setError(null);
 
         try{
 
-            const response = await fetch(`/api/weather?city=${cityNameInput}`);
+            const response = await fetch(`/api/weather?city=${cityNameInput}`); //Send a fetch request to api/weather router and has a city parameter for geocoding
 
             if(!response.ok){
-                const err=await response.json();
-                setError(err.error);
+                const err=await response.json(); //Error json coming from router
+                setError(err.error); //Error type coming from Internal Server or Router (like "City not found: Atlantis" | "Internal Server Error" | "city parameter is required")
                 return;
             }
-            const data = await response.json() as WeatherDataTypes;
-            setWeatherOnSearch(data);
 
+            const data = await response.json() as WeatherDataTypes; //Fetch succesfull
+            setWeatherOnSearch(data); //Use data on incoming function (which will be setWeather(data))
+            setCityNameInput(""); //Reset input 
         }
         catch{
-            setError("Error occured.");
+            setError("Network error occured."); //For failed fetch requests
         }
         finally{
             setIsInputLoading(false);
@@ -41,10 +45,11 @@ function SearchBox({setWeatherOnSearch}: SearchBoxTypes){
         <>
             <input 
                 type="text" 
-                placeholder={isInputLoading ? "Searching..." : "Enter a city"} 
+                disabled={isInputLoading} //Disable input while process
+                placeholder="Enter a city" 
                 value={cityNameInput} 
                 onChange={(event)=>setCityNameInput(event.target.value)}
-                onKeyDown={(e)=>e.key==="Enter" && handleSearch()}>    
+                onKeyDown={(e)=>e.key==="Enter" && handleSearch()}>
             </input>
             <button onClick={handleSearch} disabled={isInputLoading}>Search</button>
         </>
