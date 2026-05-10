@@ -10,6 +10,7 @@ export interface CurrentWeatherTypes{
     feels_like:number;
     humidity:number;
     wind_speed:number;
+    uvi:number;
     weather:WeatherDescriptionTypes[];
 }
 export interface DailyWeatherTypes{

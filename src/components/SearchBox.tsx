@@ -33,7 +33,8 @@ function SearchBox({setWeatherOnSearch}: SearchBoxTypes){ //Searchbox takes a fu
             setWeatherOnSearch(data); //Use data on incoming function (which will be setWeather(data))
             setCityNameInput(""); //Reset input 
         }
-        catch{
+        catch(error){
+            console.log(error);
             setError("Network error occured."); //For failed fetch requests
         }
         finally{
@@ -44,6 +45,7 @@ function SearchBox({setWeatherOnSearch}: SearchBoxTypes){ //Searchbox takes a fu
     return(
         <>
             <input 
+                className="border-2 bg-amber-100 p-0.5 m-1"
                 type="text" 
                 disabled={isInputLoading} //Disable input while process
                 placeholder="Enter a city" 
