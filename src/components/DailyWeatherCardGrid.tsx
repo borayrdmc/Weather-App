@@ -20,6 +20,12 @@ export default function DailyWeatherCardGrid({dailyWeatherData}:{dailyWeatherDat
     
     return(
 
-        <div>{DailyWeatherGridItems}</div>
+        <div className="w-full max-w-4xl">
+
+            <div className="grid grid-cols-8 gap-2 items-center">
+                {DailyWeatherGridItems}
+            </div>
+            
+        </div>
     );
 }

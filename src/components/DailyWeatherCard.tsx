@@ -5,9 +5,9 @@ export default function DailyWeatherCard({dailyWeatherData,day}:{dailyWeatherDat
 
     return(
         <>
-            <div className="border-2 flex flex-col items-center justify-center">
-                <p>{day}</p>
-                <img src={`${BASE_URL}/${dailyWeatherData.weather[0].icon}@2x.png`} alt="weather-icon"/>
+            <div className="rounded-lg bg-[#1E1E20] flex flex-col items-center py-2 text-white">
+                <p className="text-lg">{day}</p>
+                <img className="w-20 h-20 object-contain" src={`${BASE_URL}/${dailyWeatherData.weather[0].icon}@2x.png`} alt="weather-icon"/>
                 <p>{Math.round(dailyWeatherData.temp.max)}° {Math.round(dailyWeatherData.temp.min)}°</p>
             </div>
         </>
