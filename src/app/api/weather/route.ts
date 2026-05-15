@@ -1,6 +1,7 @@
 import { GeoCodingService } from "@/services/GeoCodingService";
 import { WeatherDataService } from "@/services/WeatherDataService";
 import { NextRequest } from "next/server";
+import { CombinedDataTypes } from "@/types/CombinedDataTypes";
 
 export async function GET(request:NextRequest){
 
@@ -13,15 +14,17 @@ export async function GET(request:NextRequest){
             return Response.json({error: "City parameter is required" },{status: 400}); //API security (direct request to /api/weather?city=)
         }
 
-        const coords = await GeoCodingService(cityName);
+        const geocodingData = await GeoCodingService(cityName);
         
-        if(!coords){
-            return Response.json({error: `City not found: ${cityName}`},{ status: 404 }); //If coords came NULL from geocoding service. Turn into a response with error
+        if(!geocodingData){
+            return Response.json({error: `City not found: ${cityName}`},{ status: 404 }); //If geocodingData came NULL from geocoding service. Turn into a response with error
         }
 
-        const weatherData = await WeatherDataService(coords.lat, coords.lon); //Request to Weather Service - If success will return response if not go to catch
+        const weatherData = await WeatherDataService(geocodingData.lat, geocodingData.lon); //Request to Weather Service - If success will return response if not go to catch
         
-        return Response.json(weatherData);
+        const combinedData : CombinedDataTypes = {weather:weatherData,location:geocodingData};
+
+        return Response.json(combinedData);
     }
 
     catch(error:any){ //Catch thrown errors from services

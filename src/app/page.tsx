@@ -3,17 +3,23 @@
 import CurrentWeatherCard from "@/components/CurrentWeatherCard";
 import DailyWeatherCardGrid from "@/components/DailyWeatherCardGrid";
 import SearchBox from "@/components/SearchBox";
+import { CoordinateTypes } from "@/types/CoordinateTypes";
 import { WeatherDataTypes } from "@/types/WeatherTypes";
 import { useState } from "react";
 
 export default function page(){
 
     const [weatherData,setWeatherData] = useState<WeatherDataTypes|null>(null);
+    const [locationData,setLocationData] = useState<CoordinateTypes|null>(null);
 
     return(
 
         <div className="w-full min-h-screen bg-[#131314] flex flex-col items-center justify-center gap-6 p-4">
-            <SearchBox setWeatherOnSearch={setWeatherData}></SearchBox>
+
+            <div className="w-full max-w-4xl flex flex-row justify-between items-center">
+                {locationData && <span className="font-bold text-2xl text-white ml-1">Location: {locationData.name}, {locationData.country}</span>}
+                <SearchBox setWeatherOnSearch={setWeatherData} setLocationOnSearch={setLocationData}></SearchBox>
+            </div>
             {weatherData && <CurrentWeatherCard currentWeatherData={weatherData.current}/>}
             {weatherData && <DailyWeatherCardGrid dailyWeatherData={weatherData.daily}/>}
         </div>
