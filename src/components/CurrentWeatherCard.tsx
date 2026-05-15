@@ -1,9 +1,11 @@
 import { CurrentWeatherTypes } from "@/types/WeatherTypes";
-const BASE_URL = "https://openweathermap.org/img/wn"
+import { WeatherIconSwitcher } from "@/utils/WeatherIconSwitcher";
 
 export default function CurrentWeatherCard({currentWeatherData}:{currentWeatherData: CurrentWeatherTypes}){
 
     const dayName = new Date().toLocaleDateString("en-US", { weekday: "long" });
+
+    const iconPath = WeatherIconSwitcher(currentWeatherData.weather[0].icon, currentWeatherData.weather[0].id);
 
     return(
 
@@ -11,7 +13,7 @@ export default function CurrentWeatherCard({currentWeatherData}:{currentWeatherD
 
             <div className="flex flex-row items-center gap-5">
 
-                <img className="w-50 h-50 object-contain" src={`${BASE_URL}/${currentWeatherData.weather[0].icon}@2x.png`} alt="current weather image"></img>
+                <img className="w-50 h-50 object-contain" src={iconPath} alt="current weather image"></img>
 
                 <div className="flex flex-row items-center">
                     <p className="text-7xl font-bold leading-none p-0">{Math.round(currentWeatherData.temp)}</p>

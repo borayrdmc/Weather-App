@@ -14,13 +14,13 @@ export async function GET(request:NextRequest){
         }
 
         const coords = await GeoCodingService(cityName);
-
+        
         if(!coords){
             return Response.json({error: `City not found: ${cityName}`},{ status: 404 }); //If coords came NULL from geocoding service. Turn into a response with error
         }
 
         const weatherData = await WeatherDataService(coords.lat, coords.lon); //Request to Weather Service - If success will return response if not go to catch
-
+        
         return Response.json(weatherData);
     }
 
