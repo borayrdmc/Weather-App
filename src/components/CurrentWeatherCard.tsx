@@ -13,7 +13,7 @@ export default function CurrentWeatherCard({currentWeatherData}:{currentWeatherD
 
             <div className="flex flex-row items-center gap-5">
 
-                <img className="w-50 h-50 object-contain" src={iconPath} alt="current weather image"></img>
+                <img className="w-40 h-40 object-contain" src={iconPath} alt="current weather image"></img>
 
                 <div className="flex flex-row items-center">
                     <p className="text-7xl font-bold leading-none p-0">{Math.round(currentWeatherData.temp)}</p>

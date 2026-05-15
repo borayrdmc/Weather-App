@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { WeatherDataTypes } from "@/types/WeatherTypes";
 import { SearchBoxTypes } from "@/types/SearchBoxTypes";
+import { CityNameNormalizer } from "@/utils/CityNameNormalizer";
 
 function SearchBox({setWeatherOnSearch}: SearchBoxTypes){ //Searchbox takes a function as parameter and this function has to follow search box type rules
 
@@ -21,7 +22,9 @@ function SearchBox({setWeatherOnSearch}: SearchBoxTypes){ //Searchbox takes a fu
 
         try{
 
-            const response = await fetch(`/api/weather?city=${cityNameInput}`); //Send a fetch request to api/weather router and has a city parameter for geocoding
+            const normalizedCityName = CityNameNormalizer(cityNameInput);
+
+            const response = await fetch(`/api/weather?city=${normalizedCityName}`); //Send a fetch request to api/weather router and has a city parameter for geocoding
 
             if(!response.ok){
                 const err=await response.json(); //Error json coming from router
