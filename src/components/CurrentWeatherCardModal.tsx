@@ -1,8 +1,7 @@
-import { CurrentWeatherCardTypes } from "@/types/CurrentWeatherCardTypes";
-
+import { CurrentWeatherTypes } from "@/types/WeatherTypes";
 import { WeatherIconSwitcher } from "@/utils/WeatherIconSwitcher";
 
-export default function CurrentWeatherCard({currentWeatherData,onClickFunction}:CurrentWeatherCardTypes){
+export default function CurrentWeatherCardModal({currentWeatherData}:{currentWeatherData:CurrentWeatherTypes}){
 
     const dayName = new Date().toLocaleDateString("en-US", { weekday: "long" });
 
@@ -10,17 +9,17 @@ export default function CurrentWeatherCard({currentWeatherData,onClickFunction}:
 
     return(
 
-        <div onClick={()=>onClickFunction(true)} className="rounded-2xl bg-[#1E1F20] w-full max-w-4xl flex flex-row justify-between p-5 text-white cursor-pointer">
+        <div className="bg-[#1E1F20] w-full max-w-6xl flex flex-row justify-between p-5 text-white">
 
             <div className="flex flex-row items-center gap-5">
 
-                <img className="w-40 h-40 object-contain" src={iconPath} alt="current weather image"></img>
+                <img className="w-30 h-30 object-contain" src={iconPath} alt="current weather image"></img>
 
                 <div className="flex flex-row items-center">
-                    <p className="text-7xl font-bold leading-none p-0">{Math.round(currentWeatherData.temp)}</p>
+                    <p className="text-6xl font-bold leading-none p-0">{Math.round(currentWeatherData.temp)}</p>
 
                     <div className="flex flex-col">
-                        <p className="text-5xl font-bold leading-none">°</p>
+                        <p className="text-4xl font-bold leading-none">°</p>
                         <p className="p mx-2">C</p>
                     </div>
                 </div>

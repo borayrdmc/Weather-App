@@ -13,6 +13,15 @@ export interface CurrentWeatherTypes{
     uvi:number;
     weather:WeatherDescriptionTypes[];
 }
+export interface HourlyWeatherTypes{
+    dt:number;
+    temp:number;
+    feels_like:number;
+    uvi:number;
+    humidity:number;
+    wind_speed:number;    
+    weather:WeatherDescriptionTypes[];
+}
 export interface DailyWeatherTypes{
     dt:number;
     summary?:string;
@@ -26,5 +35,6 @@ export interface WeatherDataTypes{
     lon:number;
     timezone:string;
     current:CurrentWeatherTypes;
+    hourly:HourlyWeatherTypes[];
     daily:DailyWeatherTypes[]; 
 }

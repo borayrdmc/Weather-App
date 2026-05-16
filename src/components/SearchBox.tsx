@@ -1,6 +1,6 @@
 "use client";
+
 import { useState } from "react";
-import { WeatherDataTypes } from "@/types/WeatherTypes";
 import { SearchBoxTypes } from "@/types/SearchBoxTypes";
 import { CityNameNormalizer } from "@/utils/CityNameNormalizer";
 import { CombinedDataTypes } from "@/types/CombinedDataTypes";
