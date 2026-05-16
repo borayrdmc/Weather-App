@@ -10,7 +10,7 @@ export default function CurrentWeatherCard({currentWeatherData,onClickFunction}:
 
     return(
 
-        <div onClick={()=>onClickFunction(true)} className="rounded-2xl bg-[#1E1F20] w-full max-w-4xl flex flex-row justify-between p-5 text-white cursor-pointer hover:bg-red-700 hover:shadow-lg transition-all duration-200">
+        <div onClick={()=>onClickFunction(true)} className="rounded-2xl bg-[#1E1F20] w-full max-w-4xl flex flex-row justify-between p-5 text-white cursor-pointer hover:bg-[#252729] transition-all duration-200">
 
             <div className="flex flex-row items-center gap-5">
 
