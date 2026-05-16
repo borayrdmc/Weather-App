@@ -50,7 +50,7 @@ function SearchBox({setWeatherOnSearch,setLocationOnSearch}: SearchBoxTypes){ //
     }
 
     return(
-        <div className="flex items-center border rounded-full px-4 bg-[#303134] focus-within:bg-[#4d5156] transition-colors duration-300">
+        <div className="flex items-center rounded-full px-4 bg-[#1E1F20] focus-within:bg-[#252729] transition-colors duration-300">
             <input 
                 className="text-center rounded-lg p-1 grow bg-transparent outline-none text-white"
                 type="text" 
@@ -60,7 +60,7 @@ function SearchBox({setWeatherOnSearch,setLocationOnSearch}: SearchBoxTypes){ //
                 onChange={(event)=>setCityNameInput(event.target.value)}
                 onKeyDown={(e)=>e.key==="Enter" && handleSearch()}>
             </input>
-            <button onClick={handleSearch} disabled={isInputLoading}>🔍</button>
+            <button className="text-white" onClick={handleSearch} disabled={isInputLoading}>🔍︎</button>
         </div>
     );
 }
