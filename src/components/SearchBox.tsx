@@ -28,7 +28,7 @@ function SearchBox({setWeatherOnSearch,setLocationOnSearch}: SearchBoxTypes){ //
 
             const normalizedCityName = CityNameNormalizer(input);
 
-            const response = await fetch(`/api/weather?city=${normalizedCityName}`); //Send a fetch request to api/weather router and has a city parameter for geocoding
+            const response = await fetch(`/api/weather?city=${encodeURIComponent(normalizedCityName)}`); //Send a fetch request to api/weather router and has a city parameter for geocoding
             
             if(!response.ok){
                 const err=await response.json(); //Error json coming from router
