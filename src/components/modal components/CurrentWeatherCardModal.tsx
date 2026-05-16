@@ -9,7 +9,7 @@ export default function CurrentWeatherCardModal({currentWeatherData}:{currentWea
 
     return(
 
-        <div className="bg-[#1E1F20] w-full max-w-6xl flex flex-row justify-between p-5 text-white">
+        <div className="bg-[#1E1F20] w-full max-w-5xl flex flex-row justify-between p-5 text-white">
 
             <div className="flex flex-row items-center gap-5">
 
@@ -20,7 +20,7 @@ export default function CurrentWeatherCardModal({currentWeatherData}:{currentWea
 
                     <div className="flex flex-col">
                         <p className="text-4xl font-bold leading-none">°</p>
-                        <p className="p mx-2">C</p>
+                        <p className="mx-2">C</p>
                     </div>
                 </div>
                 
