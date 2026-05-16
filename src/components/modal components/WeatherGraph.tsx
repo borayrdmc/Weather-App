@@ -36,7 +36,7 @@ export function WeatherGraph({data}: { data: HourlyWeatherTypes[]}){
                 fill="url(#colorTemp)" 
                 activeDot={false}
                 strokeWidth={2}
-                label={{ position: 'top', fill: '#fff', fontSize: 12, offset: 10 }}
+                label={({ x, y, value }) => <text x={x} y={y} fill="#fff" fontSize={12} textAnchor="middle" dy={-10}>{value}°</text>}
             />
             </AreaChart>
         </ResponsiveContainer>

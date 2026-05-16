@@ -29,6 +29,7 @@ export default function CurrentWeatherCard({currentWeatherData,onClickFunction}:
                     <p className="text-lg">UV Index: {currentWeatherData.uvi}</p>
                     <p className="text-lg">Wind Speed: {currentWeatherData.wind_speed} m/s</p>
                     <p className="text-lg">Humidity: {currentWeatherData.humidity}%</p>
+                    <p className="text-lg">Feels Like: {Math.round(currentWeatherData.feels_like)}°C</p>
                 </div>
             </div>
 
