@@ -1,4 +1,4 @@
-import { HourlyWeatherTypes } from "./WeatherTypes";
+import { HourlyWeatherTypes } from "../WeatherTypes";
 
 export interface HourlyWeatherCardTypes{
     hourlyWeatherData:HourlyWeatherTypes;

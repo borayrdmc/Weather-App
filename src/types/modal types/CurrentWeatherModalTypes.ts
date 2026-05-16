@@ -1,4 +1,4 @@
-import { CurrentWeatherTypes, HourlyWeatherTypes } from "./WeatherTypes";
+import { CurrentWeatherTypes, HourlyWeatherTypes } from "../WeatherTypes";
 
 export interface CurrentWeatherModalTypes{
     currentWeatherData:CurrentWeatherTypes;

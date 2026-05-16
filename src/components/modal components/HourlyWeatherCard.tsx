@@ -1,4 +1,4 @@
-import { HourlyWeatherCardTypes } from "@/types/HourlyWeatherCardTypes";
+import { HourlyWeatherCardTypes } from "@/types/modal types/HourlyWeatherCardTypes";
 import { WeatherIconSwitcher } from "@/utils/WeatherIconSwitcher";
 
 export function HourlyWeatherCard({hourlyWeatherData,hour}:HourlyWeatherCardTypes){

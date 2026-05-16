@@ -1,7 +1,7 @@
 "use client";
 
 import CurrentWeatherCard from "@/components/CurrentWeatherCard";
-import { CurrentWeatherModal } from "@/components/CurrentWeatherModal";
+import { CurrentWeatherModal } from "@/components/modal components/CurrentWeatherModal";
 import DailyWeatherCardGrid from "@/components/DailyWeatherCardGrid";
 import SearchBox from "@/components/SearchBox";
 import { CoordinateTypes } from "@/types/CoordinateTypes";

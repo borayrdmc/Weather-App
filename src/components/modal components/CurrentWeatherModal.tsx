@@ -1,4 +1,4 @@
-import { CurrentWeatherModalTypes } from "@/types/CurrentWeatherModalTypes";
+import { CurrentWeatherModalTypes } from "@/types/modal types/CurrentWeatherModalTypes";
 import CurrentWeatherCardModal from "./CurrentWeatherCardModal";
 import { HourlyWeatherCardGrid } from "./HourlyWeatherCardGrid";
 
