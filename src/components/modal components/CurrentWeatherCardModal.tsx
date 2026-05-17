@@ -9,7 +9,7 @@ export default function CurrentWeatherCardModal({currentWeatherData}:{currentWea
 
     return(
 
-        <div className="bg-[#1E1F20] w-full max-w-5xl flex flex-row justify-between p-5 text-white">
+        <div className="bg-[#1E1F20] w-full max-w-5xl flex flex-row flex-wrap justify-between p-5 text-white">
 
             <div className="flex flex-row items-center gap-5">
 
@@ -32,7 +32,7 @@ export default function CurrentWeatherCardModal({currentWeatherData}:{currentWea
                 </div>
             </div>
 
-            <div className="flex flex-col items-end">
+            <div className="flex flex-col items-end ml-auto">
                 <p className="font-bold text-2xl">Hourly Weather Forecast</p>
                 <p className="text-lg">{dayName}</p>
                 <p className="text-lg capitalize">{currentWeatherData.weather[0].description}</p>
