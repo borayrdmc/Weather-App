@@ -34,7 +34,7 @@ export default function CurrentWeatherCard({currentWeatherData,onClickFunction}:
             </div>
 
             <div className="flex flex-col items-end">
-                <p className="font-bold text-2xl">Weather Forecast</p>
+                <p className="font-bold text-2xl">Daily Weather Forecast</p>
                 <p className="text-lg">{dayName}</p>
                 <p className="text-lg capitalize">{currentWeatherData.weather[0].description}</p>
             </div>
