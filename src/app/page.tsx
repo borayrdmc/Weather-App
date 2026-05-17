@@ -23,8 +23,8 @@ export default function page(){
                 <SearchBox setWeatherOnSearch={setWeatherData} setLocationOnSearch={setLocationData}></SearchBox>
             </div>
             {weatherData && <CurrentWeatherCard onClickFunction={setModalState} currentWeatherData={weatherData.current}/>}
-            {weatherData && modalState && <CurrentWeatherModal onClickFunction={setModalState} currentWeatherData={weatherData.current} hourlyWeatherData={weatherData.hourly} timezone={weatherData.timezone}/>}
-            {weatherData && <DailyWeatherCardGrid dailyWeatherData={weatherData.daily}/>}
+            {weatherData && modalState && <CurrentWeatherModal onClickFunction={setModalState} weatherData={weatherData}/>}
+            {weatherData && <DailyWeatherCardGrid dailyWeatherData={weatherData.daily} timezone={weatherData.timezone}/>}
         </div>
     );
 }

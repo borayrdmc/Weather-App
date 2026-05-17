@@ -1,8 +1,6 @@
-import { CurrentWeatherTypes, HourlyWeatherTypes } from "../WeatherTypes";
+import { CurrentWeatherTypes, HourlyWeatherTypes, WeatherDataTypes } from "../WeatherTypes";
 
 export interface CurrentWeatherModalTypes{
-    currentWeatherData:CurrentWeatherTypes;
-    hourlyWeatherData:HourlyWeatherTypes[];
+    weatherData:WeatherDataTypes;
     onClickFunction:(bool:boolean)=>void;
-    timezone:string;
 }

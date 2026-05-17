@@ -3,7 +3,11 @@ import CurrentWeatherCardModal from "./CurrentWeatherCardModal";
 import { HourlyWeatherCardGrid } from "./HourlyWeatherCardGrid";
 import { WeatherGraph } from "./WeatherGraph";
 
-export function CurrentWeatherModal({currentWeatherData,hourlyWeatherData,onClickFunction,timezone}:CurrentWeatherModalTypes){
+export function CurrentWeatherModal({weatherData,onClickFunction}:CurrentWeatherModalTypes){
+
+    const currentWeatherData= weatherData.current;
+    const hourlyWeatherData= weatherData.hourly;
+    const timezone=weatherData.timezone;
 
     return(
         
