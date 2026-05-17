@@ -3,7 +3,7 @@ import { HourlyWeatherCard } from "./HourlyWeatherCard";
 import { useState } from "react";
 import { GoChevronRight,GoChevronLeft } from "react-icons/go";
 
-export function HourlyWeatherCardGrid({hourlyWeatherData}:{hourlyWeatherData:HourlyWeatherTypes[]}){
+export function HourlyWeatherCardGrid({hourlyWeatherData,timezone}:{hourlyWeatherData:HourlyWeatherTypes[],timezone:string}){
 
     const [startIndex,setStartIndex] = useState(0);
 
@@ -27,7 +27,7 @@ export function HourlyWeatherCardGrid({hourlyWeatherData}:{hourlyWeatherData:Hou
     const HourlyWeatherGridItems= hourlyData.map((data,index)=>{
 
         const date = new Date(data.dt * 1000);
-        const formattedHour = date.toLocaleTimeString("tr-TR", {hour: "2-digit",minute: "2-digit",});
+        const formattedHour = date.toLocaleTimeString("tr-TR", {hour: "2-digit",minute: "2-digit", timeZone:timezone});
 
             return(
                 <HourlyWeatherCard key={data.dt} hourlyWeatherData={data} hour={formattedHour}/>

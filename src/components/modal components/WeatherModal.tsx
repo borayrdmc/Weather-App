@@ -3,7 +3,7 @@ import CurrentWeatherCardModal from "./CurrentWeatherCardModal";
 import { HourlyWeatherCardGrid } from "./HourlyWeatherCardGrid";
 import { WeatherGraph } from "./WeatherGraph";
 
-export function CurrentWeatherModal({currentWeatherData,hourlyWeatherData,onClickFunction}:CurrentWeatherModalTypes){
+export function CurrentWeatherModal({currentWeatherData,hourlyWeatherData,onClickFunction,timezone}:CurrentWeatherModalTypes){
 
     return(
         
@@ -14,7 +14,7 @@ export function CurrentWeatherModal({currentWeatherData,hourlyWeatherData,onClic
                 <button className="absolute top-1 right-4 text-gray-400 cursor-pointer hover:text-white text-xl font-semibold transition-colors duration-200" onClick={() => onClickFunction(false)}>✕</button>
                 <CurrentWeatherCardModal currentWeatherData={currentWeatherData}/>
                 <WeatherGraph data={hourlyWeatherData}/>
-                <HourlyWeatherCardGrid hourlyWeatherData={hourlyWeatherData} />
+                <HourlyWeatherCardGrid hourlyWeatherData={hourlyWeatherData} timezone={timezone} />
             </div>
         </div>
     );

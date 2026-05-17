@@ -4,4 +4,5 @@ export interface CurrentWeatherModalTypes{
     currentWeatherData:CurrentWeatherTypes;
     hourlyWeatherData:HourlyWeatherTypes[];
     onClickFunction:(bool:boolean)=>void;
+    timezone:string;
 }

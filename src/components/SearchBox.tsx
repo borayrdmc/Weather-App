@@ -55,7 +55,7 @@ function SearchBox({setWeatherOnSearch,setLocationOnSearch}: SearchBoxTypes){ //
                 className="text-center rounded-lg p-1 grow bg-transparent outline-none text-white"
                 type="text" 
                 disabled={isInputLoading} //Disable input while process
-                placeholder={isInputLoading?"Searching..." : "Enter a city"}
+                placeholder={isInputLoading?"Searching..." : "Enter a location"}
                 value={cityNameInput} 
                 onChange={(event)=>setCityNameInput(event.target.value)}
                 onKeyDown={(e)=>e.key==="Enter" && handleSearch()}>

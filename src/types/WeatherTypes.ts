@@ -33,6 +33,7 @@ export interface DailyWeatherTypes{
 export interface WeatherDataTypes{
     lat:number;
     lon:number;
+    timezone_offset:number;
     timezone:string;
     current:CurrentWeatherTypes;
     hourly:HourlyWeatherTypes[];
