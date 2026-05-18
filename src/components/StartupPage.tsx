@@ -10,6 +10,7 @@ export function StartupPage({setWeatherData,setLocationData}: StartupPageTypes){
         <div className="w-full min-h-screen bg-[#131314] flex flex-col items-center justify-between p-8 relative overflow-hidden">
             
             <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-blue-500/5 blur-[120px] rounded-full" />
+            <div className="absolute top-[-10%] right-[-10%] w-[40%] h-[40%] bg-blue-500/5 blur-[120px] rounded-full" />
 
 
             <div className="flex-1 flex flex-col items-center justify-center w-full max-w-5xl mx-auto">
