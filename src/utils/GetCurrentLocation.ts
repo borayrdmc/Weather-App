@@ -1,4 +1,4 @@
-export function handleGeolocation(onSuccess:(lat: number, lon: number)=>void){
+export function getCurrentLocation(onSuccess:(lat: number, lon: number)=>void){
     
     if (!navigator.geolocation){return;}
 
