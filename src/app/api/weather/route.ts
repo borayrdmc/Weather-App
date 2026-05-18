@@ -2,6 +2,8 @@ import { GeoCodingService } from "@/services/GeoCodingService";
 import { WeatherDataService } from "@/services/WeatherDataService";
 import { NextRequest } from "next/server";
 import { CombinedDataTypes } from "@/types/CombinedDataTypes";
+import { CoordinateTypes } from "@/types/CoordinateTypes";
+import { ReverseGeoCodingService } from "@/services/ReverseGeoCodingService";
 
 export async function GET(request:NextRequest){
 
@@ -9,12 +11,22 @@ export async function GET(request:NextRequest){
 
         const {searchParams} = new URL(request.url);
         const cityName = searchParams.get("city");
+        const lat=searchParams.get("lat"); //Search params returns strings!
+        const lon=searchParams.get("lon");
 
-        if(!cityName){
-            return Response.json({error: "City parameter is required" },{status: 400}); //API security (direct request to /api/weather?city=)
+        let geocodingData: (CoordinateTypes | null) = null;
+        
+        if(lat && lon){
+            geocodingData=await ReverseGeoCodingService(Number(lat),Number(lon));
         }
 
-        const geocodingData = await GeoCodingService(cityName);
+        else if(cityName){
+            geocodingData = await GeoCodingService(cityName);
+        }
+       
+        else{
+            return Response.json({error:"City or Coordinates are required"},{status:400});
+        }
         
         if(!geocodingData){
             return Response.json({error: `City not found: ${cityName}`},{ status: 404 }); //If geocodingData came NULL from geocoding service. Turn into a response with error

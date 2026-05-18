@@ -43,7 +43,7 @@ export function StartupPage({setWeatherData,setLocationData}: StartupPageTypes){
 
             </div>
 
-            <Footer />
+            <Footer/>
         </div>
     );
 }
