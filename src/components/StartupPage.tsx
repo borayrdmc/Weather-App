@@ -3,6 +3,7 @@
     import { Footer } from "./Footer";
     import { FaMapMarkerAlt } from "react-icons/fa";
     import { getCurrentLocation } from "@/utils/GetCurrentLocation";
+import { CurrentLocationButton } from "./CurrentLocationButton";
 
     export function StartupPage({setWeatherData,setLocationData}: StartupPageTypes){
 
@@ -52,12 +53,7 @@
                                 <SearchBox classname="py-2 px-1" setWeatherOnSearch={setWeatherData} setLocationOnSearch={setLocationData}/>
                             </div>
 
-                            <button 
-                                onClick={handleCLick} 
-                                className="flex flex-row items-center gap-2 px-6 py-3 bg-[#1E1F20] hover:bg-[#252729] text-white rounded-full transition-all active:scale-95 cursor-pointer">
-
-                                <FaMapMarkerAlt className="text-blue-500"/><span className="text-sm">Use current location</span>
-                            </button>
+                            <CurrentLocationButton onClickFunction={handleCLick}/>
                         </div>
                     </div>
 
