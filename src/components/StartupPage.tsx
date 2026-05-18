@@ -19,7 +19,7 @@ export function StartupPage({setWeatherData,setLocationData}: StartupPageTypes){
 
                 if(!response.ok){
                     const errorData=data;
-                    toast.error(errorData.message);
+                    toast.error(`${errorData.statusCode} ${errorData.message}`);
                 }
 
                 else if (data.weather && data.location){

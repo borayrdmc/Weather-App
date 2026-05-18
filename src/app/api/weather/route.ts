@@ -29,7 +29,7 @@ export async function GET(request:NextRequest){
         }
         
         if(!geocodingData){
-            return Response.json({message:`City not found: ${cityName}`},{status:404}); //GeoCoding couldnt find anything
+            return Response.json({message:`City not found: ${cityName}`,statusCode:404},{status:404}); //GeoCoding couldnt find anything
         }
 
         const weatherData = await WeatherDataService(geocodingData.lat, geocodingData.lon); //Request to Weather Service - If success will return response if not go to catch

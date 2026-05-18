@@ -26,7 +26,9 @@ function SearchBox({setWeatherOnSearch,setLocationOnSearch,classname}: SearchBox
             
             if(!response.ok){
                 const errorData = await response.json();
-                throw new Error(errorData.message);
+                const error = new Error(errorData.message,errorData.statusCode) as any;
+                error.statusCode = errorData.statusCode;
+                throw error;
             }
 
             const data = await response.json() as CombinedDataTypes; //Fetch succesfull // Değiştir
@@ -34,7 +36,7 @@ function SearchBox({setWeatherOnSearch,setLocationOnSearch,classname}: SearchBox
             setLocationOnSearch(data.location);
         }
         catch(error:any){
-            toast.error(error.message)
+            toast.error(`${error.statusCode} ${error.message}`)
         }
         finally{
             setIsInputLoading(false);
