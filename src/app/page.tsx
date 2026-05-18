@@ -27,6 +27,9 @@ export default function page(){
 
         <div className="w-full min-h-screen bg-[#131314] flex flex-col items-center justify-between gap-6 p-4">
 
+            <div className="absolute top-[-10%] left-[-10%] w-[30%] h-[30%] bg-blue-500/5 blur-[120px] rounded-full" />
+            <div className="absolute top-[-10%] right-[-10%] w-[30%] h-[30%] bg-blue-500/5 blur-[120px] rounded-full" />
+
             <div className="w-full max-w-4xl flex flex-col items-center gap-6 grow justify-center">
 
                 <div className="w-full max-w-4xl flex flex-row justify-between items-center">
