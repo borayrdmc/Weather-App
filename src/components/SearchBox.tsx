@@ -4,8 +4,9 @@ import { useState } from "react";
 import { SearchBoxTypes } from "@/types/SearchBoxTypes";
 import { CityNameNormalizer } from "@/utils/CityNameNormalizer";
 import { CombinedDataTypes } from "@/types/CombinedDataTypes";
+import { cn } from "@/utils/TailwindMerge";
 
-function SearchBox({setWeatherOnSearch,setLocationOnSearch}: SearchBoxTypes){ //Searchbox takes a function as parameter and this function has to follow search box type rules
+function SearchBox({setWeatherOnSearch,setLocationOnSearch,classname}: SearchBoxTypes){ //Searchbox takes a function as parameter and this function has to follow search box type rules
 
     const [cityNameInput,setCityNameInput]=useState("");
     const [isInputLoading,setIsInputLoading]=useState(false);
@@ -52,7 +53,7 @@ function SearchBox({setWeatherOnSearch,setLocationOnSearch}: SearchBoxTypes){ //
     return(
         <div className="flex items-center rounded-full px-4 bg-[#1E1F20] focus-within:bg-[#252729] transition-colors duration-300">
             <input 
-                className="text-center rounded-lg p-1 grow bg-transparent outline-none text-white"
+                className={cn("text-center rounded-lg p-1 grow bg-transparent outline-none text-white",classname)}
                 type="text" 
                 disabled={isInputLoading} //Disable input while process
                 placeholder={isInputLoading?"Searching..." : "Enter a location"}

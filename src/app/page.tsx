@@ -8,6 +8,7 @@ import { CoordinateTypes } from "@/types/CoordinateTypes";
 import { WeatherDataTypes } from "@/types/WeatherTypes";
 import { useState } from "react";
 import { Footer } from "@/components/Footer";
+import { StartupPage } from "@/components/StartupPage";
 
 
 export default function page(){
@@ -15,6 +16,12 @@ export default function page(){
     const [weatherData,setWeatherData] = useState<WeatherDataTypes|null>(null);
     const [locationData,setLocationData] = useState<CoordinateTypes|null>(null);
     const [modalState,setModalState] = useState(false);
+
+    if(!weatherData){
+        return(
+            <StartupPage setWeatherData={setWeatherData} setLocationData={setLocationData}/>
+        );
+    }
 
     return(
 
