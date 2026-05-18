@@ -25,11 +25,11 @@ export async function GET(request:NextRequest){
         }
        
         else{
-            return Response.json({error:"City or Coordinates are required"},{status:400});
+            return Response.json({message:"Bad Request",statusCode:400},{status:400}); //No parameters given
         }
         
         if(!geocodingData){
-            return Response.json({error: `City not found: ${cityName}`},{ status: 404 }); //If geocodingData came NULL from geocoding service. Turn into a response with error
+            return Response.json({message:`City not found: ${cityName}`},{status:404}); //GeoCoding couldnt find anything
         }
 
         const weatherData = await WeatherDataService(geocodingData.lat, geocodingData.lon); //Request to Weather Service - If success will return response if not go to catch
@@ -41,8 +41,8 @@ export async function GET(request:NextRequest){
 
     catch(error:any){ //Catch thrown errors from services
 
-        console.error("Weather Route Error:", error.message);
-        
-        return Response.json({error: "Internal Server Error", message: error.message },{status: 500}); //Return internal server errors (API key undefined etc.)
+        const status = error.status || 500;
+
+        return Response.json({message: error.message,statusCode:status},{status:status}); //Error Details for user , Status for fetch function
     }
 }

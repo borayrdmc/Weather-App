@@ -12,7 +12,9 @@ export const GeoCodingService =async (cityName:string): Promise<CoordinateTypes|
     const response=await fetch(`${BASE_URL}/direct?q=${cityName}&limit=1&appid=${API_KEY}`,{next:{revalidate:false}}); //Never reset cache because coords cant change in time
 
     if(!response.ok){
-        throw new Error(`${response.status} Error: ${response.statusText}`); //Throw error for router-catch block
+        const error: any = new Error(response.statusText);
+        error.status = response.status; 
+        throw error;
     }
 
     const geoCodingData = await response.json() as CoordinateTypes[];
