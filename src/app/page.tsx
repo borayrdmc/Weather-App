@@ -42,7 +42,7 @@ export default function page(){
                 
                 {weatherData && <CurrentWeatherCard onClickFunction={setModalState} currentWeatherData={weatherData.current} unit={unit}/>}
                 {weatherData && modalState && <CurrentWeatherModal onClickFunction={setModalState} weatherData={weatherData}/>}
-                {weatherData && <DailyWeatherCardGrid dailyWeatherData={weatherData.daily} timezone={weatherData.timezone}/>}
+                {weatherData && <DailyWeatherCardGrid dailyWeatherData={weatherData.daily} timezone={weatherData.timezone} unit={unit}/>}
             </div>
 
             <Footer/>

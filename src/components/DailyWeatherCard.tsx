@@ -1,7 +1,8 @@
-import { DailyWeatherTypes, WeatherDataTypes } from "@/types/WeatherTypes";
+import { DailyWeatherCardTypes } from "@/types/DailyWeatherCardTypes";
+import { UnitConverter } from "@/utils/UnitConverter";
 import { WeatherIconSwitcher } from "@/utils/WeatherIconSwitcher";
 
-export default function DailyWeatherCard({dailyWeatherData,day}:{dailyWeatherData:DailyWeatherTypes,day:string}){
+export default function DailyWeatherCard({dailyWeatherData,day,unit}:DailyWeatherCardTypes){
 
     const iconPath = WeatherIconSwitcher(dailyWeatherData.weather[0].icon, dailyWeatherData.weather[0].id);
 
@@ -10,7 +11,7 @@ export default function DailyWeatherCard({dailyWeatherData,day}:{dailyWeatherDat
             <div className="rounded-lg bg-[#1E1E20] flex flex-col items-center py-2 text-white">
                 <p className="text-lg">{day}</p>
                 <img className="w-15 h-15 object-contain" src={iconPath} alt="weather-icon"/>
-                <p>{Math.round(dailyWeatherData.temp.max)}° <span className="text-gray-400">{Math.round(dailyWeatherData.temp.min)}°</span></p>
+                <p>{UnitConverter(dailyWeatherData.temp.max,unit)} {unit!=="K" && <span>°</span>} <span className="text-gray-400">{UnitConverter(dailyWeatherData.temp.min,unit)} {unit!=="K" && <span>°</span>}</span></p>
             </div>
         </>
     );

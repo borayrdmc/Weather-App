@@ -1,7 +1,7 @@
-import { DailyWeatherTypes } from "@/types/WeatherTypes";
 import DailyWeatherCard from "./DailyWeatherCard";
+import { DailyWeatherGridTypes } from "@/types/DailyWeatherGridTypes";
 
-export default function DailyWeatherCardGrid({dailyWeatherData,timezone}:{dailyWeatherData:DailyWeatherTypes[],timezone:string}){
+export default function DailyWeatherCardGrid({dailyWeatherData,timezone,unit}:DailyWeatherGridTypes){
 
     const dailyData = dailyWeatherData.slice(0,8);
 
@@ -12,7 +12,7 @@ export default function DailyWeatherCardGrid({dailyWeatherData,timezone}:{dailyW
         const dayName = date.toLocaleDateString("en-US", {weekday: "short", timeZone: timezone});
 
             return(
-                <DailyWeatherCard key={data.dt} dailyWeatherData={data} day={dayName}/> 
+                <DailyWeatherCard key={data.dt} dailyWeatherData={data} day={dayName} unit={unit}/> 
             );
         }
     )
