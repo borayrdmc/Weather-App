@@ -49,9 +49,9 @@ function SearchBox({setWeatherOnSearch,setLocationOnSearch,classname}: SearchBox
     }
 
     return(
-        <div className="flex items-center rounded-full px-4 bg-[#1E1F20] focus-within:bg-[#252729] transition-colors duration-300">
+        <div className="flex items-center rounded-full px-4 transition-colors duration-300 bg-gray-700 dark:bg-[#1E1F20] dark:focus-within:bg-[#252729]">
             <input 
-                className={cn("text-center rounded-lg p-1 grow bg-transparent outline-none text-white",classname)}
+                className={cn("text-center rounded-lg p-1 grow bg-transparent outline-none text-black dark:text-white",classname)}
                 type="text" 
                 disabled={isInputLoading} //Disable input while process
                 placeholder={isInputLoading?"Searching..." : "Enter a location"}

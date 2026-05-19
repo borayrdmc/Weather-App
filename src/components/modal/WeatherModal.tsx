@@ -34,11 +34,11 @@ export function CurrentWeatherModal({weatherData,onClickFunction,unit}:CurrentWe
 
     return(
         
-        <div className="fixed inset-0 z-50 bg-black/50 flex flex-col items-center justify-center" onClick={()=>onClickFunction(false)}>
+        <div className="fixed inset-0 z-50 flex flex-col items-center justify-center dark:bg-black/50" onClick={()=>onClickFunction(false)}>
 
-            <div className="relative w-full max-w-5xl bg-[#1E1F20] flex flex-col items-center p-6 rounded-2xl overflow-hidden shadow-lg shadow-gray-500/15 backdrop-blur-lg" onClick={(e)=>e.stopPropagation()}>
+            <div className="relative w-full max-w-5xl flex flex-col items-center p-6 rounded-2xl overflow-hidden bg-amber-100 dark:shadow-lg dark:shadow-gray-500/15 dark:bg-[#1E1F20]" onClick={(e)=>e.stopPropagation()}>
 
-                <button className="absolute top-2 right-4 text-gray-400 cursor-pointer hover:text-white text-xl font-semibold transition-colors duration-200" onClick={() => onClickFunction(false)}>✕</button>
+                <button className="absolute top-2 right-4 cursor-pointer  text-xl font-semibold transition-colors duration-200 dark:text-gray-400 dark:hover:text-white" onClick={() => onClickFunction(false)}>✕</button>
                 <CurrentWeatherCardModal currentWeatherData={currentWeatherData} unit={unit}/>
                 <WeatherGraph data={hourlyWeatherData}/>
                 <HourlyWeatherCardGrid hourlyWeatherData={hourlyWeatherData} timezone={timezone} unit={unit} />

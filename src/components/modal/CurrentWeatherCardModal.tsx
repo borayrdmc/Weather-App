@@ -14,7 +14,7 @@ export default function CurrentWeatherCardModal({currentWeatherData,unit}:Curren
 
     return(
 
-        <div className="bg-[#1E1F20] w-full max-w-5xl flex flex-row flex-wrap justify-between p-5 text-white">
+        <div className="w-full max-w-5xl flex flex-row flex-wrap justify-between p-5 bg-amber-100 text-black dark:text-white dark:bg-[#1E1F20] ">
 
             <div className="flex flex-row items-center gap-5">
 
