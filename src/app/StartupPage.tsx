@@ -1,11 +1,14 @@
-import { StartupPageTypes } from "@/types/StartupPageTypes";
 import SearchBox from "../components/SearchBox";
 import { Footer } from "../components/Footer";
-import { FaMapMarkerAlt } from "react-icons/fa";
-import { getCurrentLocation } from "@/utils/GetCurrentLocation";
 import { CurrentLocationButton } from "../components/CurrentLocationButton";
-import toast from "react-hot-toast";
 import { OnClickCurrentLocation } from "@/utils/OnClickCurrentLocation";
+import { WeatherDataTypes } from "@/types/WeatherTypes";
+import { CoordinateTypes } from "@/types/CoordinateTypes";
+
+interface StartupPageTypes{
+    setWeatherData:(data: WeatherDataTypes)=> void; //Incoming function has to have a data parameter(which follows weather data types) and mustn't return => setWeather(data) for an example
+    setLocationData:(data:CoordinateTypes)=>void; //Same as setWeatherOnSearch 
+}
 
 export function StartupPage({setWeatherData,setLocationData}: StartupPageTypes){
 

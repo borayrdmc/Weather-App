@@ -1,6 +1,12 @@
-import { DailyWeatherCardTypes } from "@/types/DailyWeatherCardTypes";
+import { DailyWeatherTypes, TemperatureUnit } from "@/types/WeatherTypes";
 import { UnitConverter } from "@/utils/UnitConverter";
 import { WeatherIconSwitcher } from "@/utils/WeatherIconSwitcher";
+
+interface DailyWeatherCardTypes{
+    dailyWeatherData:DailyWeatherTypes;
+    day:string;
+    unit:TemperatureUnit;
+}
 
 export default function DailyWeatherCard({dailyWeatherData,day,unit}:DailyWeatherCardTypes){
 

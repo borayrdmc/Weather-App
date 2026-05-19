@@ -1,6 +1,12 @@
 import toast from "react-hot-toast";
 import { getCurrentLocation } from "./GetCurrentLocation";
-import { OnClickCurrentLocationTypes } from "@/types/OnClickCurrentLocationTypes";
+import { CoordinateTypes } from "@/types/CoordinateTypes";
+import { WeatherDataTypes } from "@/types/WeatherTypes";
+
+interface OnClickCurrentLocationTypes{
+    setWeatherData:(data: WeatherDataTypes)=> void;
+    setLocationData:(data:CoordinateTypes)=>void;
+}
 
 export function OnClickCurrentLocation({setWeatherData,setLocationData}:OnClickCurrentLocationTypes){
 

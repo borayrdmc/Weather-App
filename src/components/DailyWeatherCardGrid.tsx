@@ -1,5 +1,11 @@
+import { DailyWeatherTypes, TemperatureUnit } from "@/types/WeatherTypes";
 import DailyWeatherCard from "./DailyWeatherCard";
-import { DailyWeatherGridTypes } from "@/types/DailyWeatherGridTypes";
+
+interface DailyWeatherGridTypes{
+    dailyWeatherData:DailyWeatherTypes[];
+    timezone:string;
+    unit:TemperatureUnit;
+}
 
 export default function DailyWeatherCardGrid({dailyWeatherData,timezone,unit}:DailyWeatherGridTypes){
 

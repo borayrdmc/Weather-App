@@ -1,11 +1,16 @@
-"use client";
-
 import { useState } from "react";
-import { SearchBoxTypes } from "@/types/SearchBoxTypes";
 import { CityNameNormalizer } from "@/utils/CityNameNormalizer";
-import { CombinedDataTypes } from "@/types/CombinedDataTypes";
 import { cn } from "@/utils/TailwindMerge";
 import toast from "react-hot-toast";
+import { WeatherDataTypes } from "@/types/WeatherTypes";
+import { CoordinateTypes } from "@/types/CoordinateTypes";
+import { CombinedDataTypes } from "@/app/api/weather/route";
+
+interface SearchBoxTypes{
+    setWeatherOnSearch:(data: WeatherDataTypes)=> void; //Incoming function has to have a data parameter(which follows weather data types) and mustn't return => setWeather(data) for an example
+    setLocationOnSearch:(data:CoordinateTypes)=>void; //Same as setWeatherOnSearch 
+    classname?:string;
+}
 
 function SearchBox({setWeatherOnSearch,setLocationOnSearch,classname}: SearchBoxTypes){ //Searchbox takes a function as parameter and this function has to follow search box type rules
 

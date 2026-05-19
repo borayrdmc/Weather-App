@@ -1,9 +1,14 @@
 import { GeoCodingService } from "@/services/GeoCodingService";
 import { WeatherDataService } from "@/services/WeatherDataService";
 import { NextRequest } from "next/server";
-import { CombinedDataTypes } from "@/types/CombinedDataTypes";
 import { CoordinateTypes } from "@/types/CoordinateTypes";
 import { ReverseGeoCodingService } from "@/services/ReverseGeoCodingService";
+import { WeatherDataTypes } from "@/types/WeatherTypes";
+
+export interface CombinedDataTypes{
+    weather:WeatherDataTypes;
+    location:CoordinateTypes;
+}
 
 export async function GET(request:NextRequest){
 

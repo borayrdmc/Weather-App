@@ -1,6 +1,12 @@
-import { CurrentWeatherCardTypes } from "@/types/CurrentWeatherCardTypes";
+import { CurrentWeatherTypes, TemperatureUnit } from "@/types/WeatherTypes";
 import { UnitConverter } from "@/utils/UnitConverter";
 import { WeatherIconSwitcher } from "@/utils/WeatherIconSwitcher";
+
+interface CurrentWeatherCardTypes{
+    currentWeatherData:CurrentWeatherTypes;
+    onClickFunction:(bool:boolean)=>void;
+    unit:TemperatureUnit;
+}
 
 export default function CurrentWeatherCard({currentWeatherData,onClickFunction,unit}:CurrentWeatherCardTypes){
 
