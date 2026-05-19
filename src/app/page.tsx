@@ -18,6 +18,7 @@ export default function page(){
     const [weatherData,setWeatherData] = useState<WeatherDataTypes|null>(null);
     const [locationData,setLocationData] = useState<CoordinateTypes|null>(null);
     const [modalState,setModalState] = useState(false);
+    const [unit,setUnit] = useState<"C"|"K"|"F">("C");
 
     if(!weatherData){
         return(
@@ -39,7 +40,7 @@ export default function page(){
                     <div className="flex items-center gap-2"><SearchBox setWeatherOnSearch={setWeatherData} setLocationOnSearch={setLocationData}></SearchBox><FaMapMarkerAlt onClick={()=>OnClickCurrentLocation({setWeatherData,setLocationData})} className="text-blue-500 cursor-pointer text-xl"/></div>
                 </div>
                 
-                {weatherData && <CurrentWeatherCard onClickFunction={setModalState} currentWeatherData={weatherData.current}/>}
+                {weatherData && <CurrentWeatherCard onClickFunction={setModalState} currentWeatherData={weatherData.current} unit={unit}/>}
                 {weatherData && modalState && <CurrentWeatherModal onClickFunction={setModalState} weatherData={weatherData}/>}
                 {weatherData && <DailyWeatherCardGrid dailyWeatherData={weatherData.daily} timezone={weatherData.timezone}/>}
             </div>

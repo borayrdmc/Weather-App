@@ -1,8 +1,8 @@
 import { CurrentWeatherCardTypes } from "@/types/CurrentWeatherCardTypes";
-
+import { UnitConverter } from "@/utils/UnitConverter";
 import { WeatherIconSwitcher } from "@/utils/WeatherIconSwitcher";
 
-export default function CurrentWeatherCard({currentWeatherData,onClickFunction}:CurrentWeatherCardTypes){
+export default function CurrentWeatherCard({currentWeatherData,onClickFunction,unit}:CurrentWeatherCardTypes){
 
     const dayName = new Date().toLocaleDateString("en-US", { weekday: "long" });
 
@@ -20,8 +20,8 @@ export default function CurrentWeatherCard({currentWeatherData,onClickFunction}:
                     <p className="text-7xl font-bold leading-none p-0">{Math.round(currentWeatherData.temp)}</p>
 
                     <div className="flex flex-col">
-                        <p className="text-5xl font-bold leading-none">°</p>
-                        <p className="mx-2">C</p>
+                        {unit !== "K" && <p className="text-5xl font-bold leading-none">°</p>}
+                        <p className="mx-2">{unit}</p>
                     </div>
                 </div>
                 
@@ -29,7 +29,7 @@ export default function CurrentWeatherCard({currentWeatherData,onClickFunction}:
                     <p className="text-lg">UV Index: {currentWeatherData.uvi}</p>
                     <p className="text-lg">Wind Speed: {currentWeatherData.wind_speed} m/s</p>
                     <p className="text-lg">Humidity: {currentWeatherData.humidity}%</p>
-                    <p className="text-lg">Feels Like: {Math.round(currentWeatherData.feels_like)}°C</p>
+                    <p className="text-lg">Feels Like: {UnitConverter(currentWeatherData.feels_like,unit)}°{unit}</p>
                 </div>
             </div>
 

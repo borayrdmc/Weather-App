@@ -39,3 +39,4 @@ export interface WeatherDataTypes{
     hourly:HourlyWeatherTypes[];
     daily:DailyWeatherTypes[]; 
 }
+export type TemperatureUnit = "C" | "K" | "F";
