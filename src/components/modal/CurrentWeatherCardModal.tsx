@@ -1,7 +1,12 @@
-import { CurrentWeatherTypes } from "@/types/WeatherTypes";
+import { CurrentWeatherTypes, TemperatureUnit } from "@/types/WeatherTypes";
 import { WeatherIconSwitcher } from "@/utils/WeatherIconSwitcher";
 
-export default function CurrentWeatherCardModal({currentWeatherData}:{currentWeatherData:CurrentWeatherTypes}){
+interface CurrentWeatherCardModalTypes{
+    currentWeatherData:CurrentWeatherTypes;
+    unit:TemperatureUnit;
+}
+
+export default function CurrentWeatherCardModal({currentWeatherData,unit}:CurrentWeatherCardModalTypes){
 
     const dayName = new Date().toLocaleDateString("en-US", { weekday: "long" });
 

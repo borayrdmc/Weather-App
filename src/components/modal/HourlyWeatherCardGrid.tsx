@@ -1,9 +1,15 @@
-import { HourlyWeatherTypes } from "@/types/WeatherTypes";
+import { HourlyWeatherTypes, TemperatureUnit } from "@/types/WeatherTypes";
 import { HourlyWeatherCard } from "./HourlyWeatherCard";
 import { useState } from "react";
 import { GoChevronRight,GoChevronLeft } from "react-icons/go";
 
-export function HourlyWeatherCardGrid({hourlyWeatherData,timezone}:{hourlyWeatherData:HourlyWeatherTypes[],timezone:string}){
+interface HourlyWeatherCardTypes{
+    hourlyWeatherData:HourlyWeatherTypes[];
+    timezone:string;
+    unit:TemperatureUnit;
+}
+
+export function HourlyWeatherCardGrid({hourlyWeatherData,timezone,unit}:HourlyWeatherCardTypes){
 
     const [startIndex,setStartIndex] = useState(0);
 
@@ -30,7 +36,7 @@ export function HourlyWeatherCardGrid({hourlyWeatherData,timezone}:{hourlyWeathe
         const formattedHour = date.toLocaleTimeString("tr-TR", {hour: "2-digit",minute: "2-digit", timeZone:timezone});
 
             return(
-                <HourlyWeatherCard key={data.dt} hourlyWeatherData={data} hour={formattedHour}/>
+                <HourlyWeatherCard key={data.dt} hourlyWeatherData={data} hour={formattedHour} unit={unit}/>
             );
         }
     )
