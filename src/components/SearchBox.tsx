@@ -54,7 +54,7 @@ function SearchBox({setWeatherOnSearch,setLocationOnSearch,classname}: SearchBox
                 onChange={(event)=>setCityNameInput(event.target.value)}
                 onKeyDown={(e)=>e.key==="Enter" && handleSearch()}>
             </input>
-            <button className="text-white" onClick={handleSearch} disabled={isInputLoading}>🔍︎</button>
+            <button className="text-white cursor-pointer" onClick={handleSearch} disabled={isInputLoading}>🔍︎</button>
         </div>
     );
 }

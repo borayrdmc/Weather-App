@@ -1,34 +1,13 @@
 import { StartupPageTypes } from "@/types/StartupPageTypes";
-import SearchBox from "./SearchBox";
-import { Footer } from "./Footer";
+import SearchBox from "../components/SearchBox";
+import { Footer } from "../components/Footer";
 import { FaMapMarkerAlt } from "react-icons/fa";
 import { getCurrentLocation } from "@/utils/GetCurrentLocation";
-import { CurrentLocationButton } from "./CurrentLocationButton";
+import { CurrentLocationButton } from "../components/CurrentLocationButton";
 import toast from "react-hot-toast";
+import { OnClickCurrentLocation } from "@/utils/OnClickCurrentLocation";
 
 export function StartupPage({setWeatherData,setLocationData}: StartupPageTypes){
-
-    function handleCLick(){
-
-        getCurrentLocation(
-            
-            async function(lat, lon){
-                
-                const response = await fetch(`/api/weather?lat=${lat}&lon=${lon}`);
-                const data = await response.json();
-
-                if(!response.ok){
-                    const errorData=data;
-                    toast.error(`${errorData.statusCode} ${errorData.message}`);
-                }
-
-                else if (data.weather && data.location){
-                    setWeatherData(data.weather);
-                    setLocationData(data.location);
-                }
-            }
-        );
-    }
 
     return(
 
@@ -59,7 +38,7 @@ export function StartupPage({setWeatherData,setLocationData}: StartupPageTypes){
                             <SearchBox classname="py-2 px-1" setWeatherOnSearch={setWeatherData} setLocationOnSearch={setLocationData}/>
                         </div>
 
-                        <CurrentLocationButton onClickFunction={handleCLick}/>
+                        <CurrentLocationButton onClickFunction={()=>OnClickCurrentLocation({setWeatherData,setLocationData})}/>
                     </div>
                 </div>
 

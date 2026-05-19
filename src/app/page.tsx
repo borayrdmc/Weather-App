@@ -8,7 +8,9 @@ import { CoordinateTypes } from "@/types/CoordinateTypes";
 import { WeatherDataTypes } from "@/types/WeatherTypes";
 import { useState } from "react";
 import { Footer } from "@/components/Footer";
-import { StartupPage } from "@/components/StartupPage";
+import { StartupPage } from "./StartupPage";
+import { FaMapMarkerAlt } from "react-icons/fa";
+import { OnClickCurrentLocation } from "@/utils/OnClickCurrentLocation";
 
 
 export default function page(){
@@ -30,11 +32,11 @@ export default function page(){
             <div className="absolute top-[-10%] left-[-10%] w-[30%] h-[30%] bg-blue-500/5 blur-[120px] rounded-full" />
             <div className="absolute top-[-10%] right-[-10%] w-[30%] h-[30%] bg-blue-500/5 blur-[120px] rounded-full" />
 
-            <div className="w-full max-w-4xl flex flex-col items-center gap-6 grow justify-center">
+            <div className="w-full max-w-4xl flex flex-col items-center gap-4 grow justify-center">
 
                 <div className="w-full max-w-4xl flex flex-row justify-between items-center">
                     {locationData && <span className="font-bold text-2xl text-white ml-1">Location: {locationData.name}, {locationData.country}</span>}
-                    <SearchBox setWeatherOnSearch={setWeatherData} setLocationOnSearch={setLocationData}></SearchBox>
+                    <div className="flex items-center gap-2"><SearchBox setWeatherOnSearch={setWeatherData} setLocationOnSearch={setLocationData}></SearchBox><FaMapMarkerAlt onClick={()=>OnClickCurrentLocation({setWeatherData,setLocationData})} className="text-blue-500 cursor-pointer text-xl"/></div>
                 </div>
                 
                 {weatherData && <CurrentWeatherCard onClickFunction={setModalState} currentWeatherData={weatherData.current}/>}
