@@ -33,7 +33,7 @@ export default function CurrentWeatherCard({currentWeatherData,onClickFunction}:
                 </div>
             </div>
 
-            <div className="flex flex-col items-end ml-auto">
+            <div className="flex flex-col text-right">
                 <p className="font-bold text-2xl">Daily Weather Forecast</p>
                 <p className="text-lg">{dayName}</p>
                 <p className="text-lg capitalize">{currentWeatherData.weather[0].description}</p>

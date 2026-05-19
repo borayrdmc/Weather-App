@@ -10,7 +10,7 @@ export default function DailyWeatherCard({dailyWeatherData,day}:{dailyWeatherDat
             <div className="rounded-lg bg-[#1E1E20] flex flex-col items-center py-2 text-white">
                 <p className="text-lg">{day}</p>
                 <img className="w-15 h-15 object-contain" src={iconPath} alt="weather-icon"/>
-                <p>{Math.round(dailyWeatherData.temp.max)}° {Math.round(dailyWeatherData.temp.min)}°</p>
+                <p>{Math.round(dailyWeatherData.temp.max)}° <span className="text-gray-400">{Math.round(dailyWeatherData.temp.min)}°</span></p>
             </div>
         </>
     );

@@ -1,7 +1,7 @@
 "use client";
 
 import CurrentWeatherCard from "@/components/CurrentWeatherCard";
-import { CurrentWeatherModal } from "@/components/modal components/WeatherModal";
+import { CurrentWeatherModal } from "@/components/modal/WeatherModal";
 import DailyWeatherCardGrid from "@/components/DailyWeatherCardGrid";
 import SearchBox from "@/components/SearchBox";
 import { CoordinateTypes } from "@/types/CoordinateTypes";
@@ -27,7 +27,7 @@ export default function page(){
 
     return(
 
-        <div className="w-full min-h-screen bg-[#131314] flex flex-col items-center justify-between gap-6 p-4">
+        <div className="w-full min-h-screen bg-[#131314] flex flex-col items-center justify-between gap-6 p-4 overflow-x-hidden">
 
             <div className="absolute top-[-10%] left-[-10%] w-[30%] h-[30%] bg-blue-500/5 blur-[120px] rounded-full" />
             <div className="absolute top-[-10%] right-[-10%] w-[30%] h-[30%] bg-blue-500/5 blur-[120px] rounded-full" />
@@ -35,7 +35,7 @@ export default function page(){
             <div className="w-full max-w-4xl flex flex-col items-center gap-4 grow justify-center">
 
                 <div className="w-full max-w-4xl flex flex-row justify-between items-center">
-                    {locationData && <span className="font-bold text-2xl text-white ml-1">Location: {locationData.name}, {locationData.country}</span>}
+                    {locationData && <div className="font-bold text-2xl text-white ml-1 -mb-1">Location: {locationData.name}, {locationData.country}</div>}
                     <div className="flex items-center gap-2"><SearchBox setWeatherOnSearch={setWeatherData} setLocationOnSearch={setLocationData}></SearchBox><FaMapMarkerAlt onClick={()=>OnClickCurrentLocation({setWeatherData,setLocationData})} className="text-blue-500 cursor-pointer text-xl"/></div>
                 </div>
                 
