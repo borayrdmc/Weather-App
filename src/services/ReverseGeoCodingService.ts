@@ -9,7 +9,7 @@ export const ReverseGeoCodingService = async (lat:number,lon:number): Promise<Co
         throw new Error("API key undefined!");
     }
 
-    const response = await fetch(`${BASE_URL}/reverse?lat=${lat}&lon=${lon}&limit=1&appid=${API_KEY}`);
+    const response = await fetch(`${BASE_URL}/reverse?lat=${lat}&lon=${lon}&limit=1&appid=${API_KEY}`,{next:{revalidate:false}});
     
     if(!response.ok){
         const error: any = new Error(response.statusText);
