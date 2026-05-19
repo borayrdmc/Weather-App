@@ -18,8 +18,8 @@ export function CurrentWeatherModal({weatherData,onClickFunction,unit}:CurrentWe
 
     useEffect(()=>{
         
-        const handleKeyEvent= (e: KeyboardEvent) => {
-            if (e.key==="Escape"){
+        const handleKeyEvent= (e: KeyboardEvent)=>{
+            if(e.key==="Escape"){
                 onClickFunction(false);
             }
         };

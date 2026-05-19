@@ -17,7 +17,7 @@ export default function CurrentWeatherCard({currentWeatherData,onClickFunction,u
                 <img className="w-40 h-40 object-contain" src={iconPath} alt="current weather image"></img>
 
                 <div className="flex flex-row items-center">
-                    <p className="text-7xl font-bold leading-none p-0">{Math.round(currentWeatherData.temp)}</p>
+                    <p className="text-7xl font-bold leading-none p-0">{UnitConverter(currentWeatherData.temp,unit)}</p>
 
                     <div className="flex flex-col">
                         {unit !== "K" && <p className="text-5xl font-bold leading-none">°</p>}
