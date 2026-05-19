@@ -11,8 +11,8 @@ import { Footer } from "@/components/Footer";
 import { StartupPage } from "./StartupPage";
 import { FaMapMarkerAlt } from "react-icons/fa";
 import { OnClickCurrentLocation } from "@/utils/OnClickCurrentLocation";
-import { Settings } from "@/components/Settings";
-import { IoSettingsOutline } from "react-icons/io5";
+import { Settings } from "@/components/settings/Settings";
+import { useTheme } from "next-themes";
 
 export default function page(){
 
@@ -23,6 +23,7 @@ export default function page(){
     const [isSettingsOpen,setIsSettingsOpen] = useState(false);
     
     const [unit,setUnit] = useState<"C"|"K"|"F">("C");
+    const {theme,setTheme} = useTheme();
 
     if(!weatherData){
         return(
@@ -49,7 +50,7 @@ export default function page(){
                 {weatherData && <CurrentWeatherCard currentWeatherData={weatherData.current} onClickFunction={setIsModalOpen} unit={unit}/>}
 
                 {weatherData && isModalOpen && <CurrentWeatherModal weatherData={weatherData} onClickFunction={setIsModalOpen}  unit={unit}/>}
-                {isSettingsOpen && <Settings onClickFunction={setIsSettingsOpen} unitSetter={setUnit} unit={unit}/>}
+                {isSettingsOpen && <Settings onClickFunction={setIsSettingsOpen} unitSetter={setUnit} unit={unit} theme={theme} setTheme={setTheme}/>}
 
                 {weatherData && <DailyWeatherCardGrid dailyWeatherData={weatherData.daily} timezone={weatherData.timezone} unit={unit}/>}
             </div>

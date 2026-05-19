@@ -1,14 +1,17 @@
 import { useEffect } from "react";
-import { UnitButtons } from "./settings/UnitButtons";
+import { UnitButtons } from "./UnitButtons";
 import { TemperatureUnit } from "@/types/WeatherTypes";
+import { ThemeSwitcher } from "./ThemeSwitcher";
 
 interface SettingsTypes{
     onClickFunction:(bool:boolean)=>void;
     unitSetter:(unit:"C"|"K"|"F")=>void;
     unit:TemperatureUnit;
+    theme:string|undefined;
+    setTheme:(theme: string)=>void;
 }
 
-export function Settings({onClickFunction,unitSetter,unit}:SettingsTypes){
+export function Settings({onClickFunction,unitSetter,unit,theme,setTheme}:SettingsTypes){
 
     useEffect(()=>{
             
@@ -36,9 +39,11 @@ export function Settings({onClickFunction,unitSetter,unit}:SettingsTypes){
 
                 <button className="absolute top-2 right-4  cursor-pointer text-xl font-semibold transition-colors duration-200 text-gray-700 dark:text-gray-400 dark:hover:text-white" onClick={()=>onClickFunction(false)}>✕</button>
                 <UnitButtons unitSetter={unitSetter} unit={unit}/>
+
+                <div className="pt-4 border-t border-slate-200 dark:border-gray-700">
+                    <ThemeSwitcher theme={theme} setTheme={setTheme}/>   
+                </div>
             </div>
         </div>
-
-
     );
 }

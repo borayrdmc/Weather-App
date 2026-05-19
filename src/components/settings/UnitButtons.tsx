@@ -8,8 +8,8 @@ interface UnitButtonsTypes{
 export function UnitButtons({unitSetter,unit}:UnitButtonsTypes){
 
     const BASE_TEMPLATE="p-2 rounded-md cursor-pointer transition-all duration-200 text-center"
-    const NOT_ACTIVE_TEMPLATE ="bg-[#1E1F20] text-white hover:bg-[#252729]"
-    const ACTIVE_TEMPLATE="bg-white"
+    const NOT_ACTIVE_TEMPLATE ="bg-amber-100 text-black dark:bg-[#1E1F20] dark:text-white dark:hover:bg-[#252729]"
+    const ACTIVE_TEMPLATE="bg-black dark:bg-white"
 
     return(
         
