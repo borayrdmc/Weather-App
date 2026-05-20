@@ -22,7 +22,7 @@ export function StartupPage({setWeatherData,setLocationData,setIsSettingsOpen,se
 
     return(
 
-        <div className="w-full min-h-screen flex flex-col items-center justify-between p-8 relative overflow-hidden bg-slate-100 dark:bg-[#131314]  ">
+        <div className="w-full min-h-screen flex flex-col items-center justify-between p-8 relative overflow-hidden bg-slate-100 dark:bg-[#131314] transition-colors duration-300 ease-in-out">
             
             <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-blue-500/5 blur-[120px] rounded-full" />
             <div className="absolute top-[-10%] right-[-10%] w-[40%] h-[40%] bg-blue-500/5 blur-[120px] rounded-full" />
