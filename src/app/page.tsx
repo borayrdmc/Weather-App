@@ -37,8 +37,8 @@ export default function page(){
 
         <div className=" w-full min-h-screen flex flex-col items-center justify-between gap-6 p-4 overflow-x-hidden relative bg-slate-50 dark:bg-[#131314] text-slate-900 dark:text-slate-200 transition-colors duration-300 ease-in-out">
 
-            <div className="absolute top-[-10%] left-[-10%] w-[30%] h-[30%] bg-blue-500/5 blur-[120px] rounded-full" />
-            <div className="absolute top-[-10%] right-[-10%] w-[30%] h-[30%] bg-blue-500/5 blur-[120px] rounded-full" />
+            <div className="absolute -top-1/10 -left-1/10 w-3/10 h-3/10 dark:w-5/10 dark:h-5/10 rounded-full blur-[120px] bg-amber-400/15 dark:bg-blue-500/5" />
+            <div className="absolute -top-1/10 -right-1/10 w-3/10 h-3/10 dark:w-5/10 dark:h-5/10 rounded-full blur-[120px] bg-sky-400/20 dark:bg-blue-500/5" />
 
             <div className="absolute top-3 right-6 cursor-pointer" onClick={()=>setIsSettingsOpen(true)}><Settings className="hover:text-slate-700 dark:hover:text-white"></Settings></div>
             {isSettingsOpen && <SettingsPage onClickFunction={setIsSettingsOpen} unitSetter={setUnit} unit={unit} theme={theme} setTheme={setTheme}/>}
