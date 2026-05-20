@@ -24,11 +24,12 @@ export default function page(){
     const [isSettingsOpen,setIsSettingsOpen] = useState(false);
     
     const [unit,setUnit] = useState<"C"|"K"|"F">("C");
+
     const {theme,setTheme} = useTheme();
 
     if(!weatherData){
         return(
-            <StartupPage setWeatherData={setWeatherData} setLocationData={setLocationData}/>
+            <StartupPage setWeatherData={setWeatherData} setLocationData={setLocationData} setIsSettingsOpen={setIsSettingsOpen} isSettingsOpen={isSettingsOpen} unit={unit} setUnit={setUnit} theme={theme} setTheme={setTheme}/>
         );
     }
 
@@ -40,6 +41,7 @@ export default function page(){
             <div className="absolute top-[-10%] right-[-10%] w-[30%] h-[30%] bg-blue-500/5 blur-[120px] rounded-full" />
 
             <div className="absolute top-3 right-6 cursor-pointer" onClick={()=>setIsSettingsOpen(true)}><Settings className="hover:text-slate-700 dark:hover:text-white"></Settings></div>
+            {isSettingsOpen && <SettingsPage onClickFunction={setIsSettingsOpen} unitSetter={setUnit} unit={unit} theme={theme} setTheme={setTheme}/>}
 
             <div className="w-full max-w-4xl flex flex-col items-center justify-center gap-4 grow">
 
@@ -51,7 +53,6 @@ export default function page(){
                 {weatherData && <CurrentWeatherCard currentWeatherData={weatherData.current} onClickFunction={setIsModalOpen} unit={unit}/>}
 
                 {weatherData && isModalOpen && <CurrentWeatherModal weatherData={weatherData} onClickFunction={setIsModalOpen}  unit={unit}/>}
-                {isSettingsOpen && <SettingsPage onClickFunction={setIsSettingsOpen} unitSetter={setUnit} unit={unit} theme={theme} setTheme={setTheme}/>}
 
                 {weatherData && <DailyWeatherCardGrid dailyWeatherData={weatherData.daily} timezone={weatherData.timezone} unit={unit}/>}
             </div>

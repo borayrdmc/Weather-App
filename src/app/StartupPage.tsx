@@ -4,13 +4,21 @@ import { CurrentLocationButton } from "../components/CurrentLocationButton";
 import { OnClickCurrentLocation } from "@/utils/OnClickCurrentLocation";
 import { WeatherDataTypes } from "@/types/WeatherTypes";
 import { CoordinateTypes } from "@/types/CoordinateTypes";
+import { Settings } from "lucide-react";
+import { SettingsPage } from "@/components/settings/SettingsPage";
 
 interface StartupPageTypes{
     setWeatherData:(data: WeatherDataTypes)=> void; //Incoming function has to have a data parameter(which follows weather data types) and mustn't return => setWeather(data) for an example
     setLocationData:(data:CoordinateTypes)=>void; //Same as setWeatherOnSearch 
+    setIsSettingsOpen:(state:boolean)=>void;
+    setUnit:(unit:"C"|"F"|"K")=>void;
+    setTheme:(theme: string)=>void;
+    unit:"C"|"K"|"F";
+    isSettingsOpen:boolean;
+    theme:string|undefined;
 }
 
-export function StartupPage({setWeatherData,setLocationData}: StartupPageTypes){
+export function StartupPage({setWeatherData,setLocationData,setIsSettingsOpen,setUnit,setTheme,isSettingsOpen,unit,theme}: StartupPageTypes){
 
     return(
 
@@ -18,6 +26,9 @@ export function StartupPage({setWeatherData,setLocationData}: StartupPageTypes){
             
             <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-blue-500/5 blur-[120px] rounded-full" />
             <div className="absolute top-[-10%] right-[-10%] w-[40%] h-[40%] bg-blue-500/5 blur-[120px] rounded-full" />
+
+            <div className="absolute top-3 right-6 cursor-pointer" onClick={()=>setIsSettingsOpen(true)}><Settings className="hover:text-slate-700 dark:hover:text-white"></Settings></div>
+            {isSettingsOpen && <SettingsPage onClickFunction={setIsSettingsOpen} unitSetter={setUnit} unit={unit} theme={theme} setTheme={setTheme}/>}
 
             <div className="flex-1 flex flex-col items-center justify-center w-full max-w-5xl mx-auto">
                 
