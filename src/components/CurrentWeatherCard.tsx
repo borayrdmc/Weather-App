@@ -16,7 +16,7 @@ export default function CurrentWeatherCard({currentWeatherData,onClickFunction,u
 
     return(
 
-        <div onClick={()=>onClickFunction(true)} className="w-full max-w-4xl flex flex-row flex-wrap justify-between rounded-2xl p-5 cursor-pointer transition-all duration-200 backdrop-blur-md shadow-sm border border-slate-200/50 hover:border-slate-300/80 bg-white/70 text-slate-900 dark:border-none dark:bg-[#1E1F20] dark:hover:bg-[#252729] dark:text-white">
+        <div onClick={()=>onClickFunction(true)} className="w-full max-w-4xl flex flex-row flex-wrap justify-between rounded-2xl p-5 cursor-pointer transition-all duration-200 backdrop-blur-md shadow-sm border border-slate-200/50 hover:border-slate-300/80 bg-white/70 dark:border dark:border-white/8 dark:hover:border-white/20 dark:shadow-gray-700/15 dark:bg-[#1E1F20]/70">
 
             <div className="flex flex-row items-center gap-5">
 
@@ -31,7 +31,7 @@ export default function CurrentWeatherCard({currentWeatherData,onClickFunction,u
                     </div>
                 </div>
                 
-                <div className="flex flex-col items-start text-slate-700">
+                <div className="flex flex-col items-start text-slate-700 dark:text-slate-100">
                     <p className="text-lg">UV Index: {currentWeatherData.uvi}</p>
                     <p className="text-lg">Wind Speed: {currentWeatherData.wind_speed} m/s</p>
                     <p className="text-lg">Humidity: {currentWeatherData.humidity}%</p>

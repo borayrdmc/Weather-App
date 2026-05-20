@@ -14,7 +14,7 @@ export default function CurrentWeatherCardModal({currentWeatherData,unit}:Curren
 
     return(
 
-        <div className="w-full max-w-5xl flex flex-row flex-wrap justify-between p-5 bg-transparent text-slate-900 dark:text-white">
+        <div className="w-full max-w-5xl flex flex-row flex-wrap justify-between p-5 bg-transparent text-slate-900 dark:text-slate-200">
 
             <div className="flex flex-row items-center gap-5">
 
@@ -29,7 +29,7 @@ export default function CurrentWeatherCardModal({currentWeatherData,unit}:Curren
                     </div>
                 </div>
                 
-                <div className="flex flex-col items-start text-slate-700">
+                <div className="flex flex-col items-start text-slate-700 dark:text-slate-200">
                     <p className="text-lg">UV Index: {currentWeatherData.uvi}</p>
                     <p className="text-lg">Wind Speed: {currentWeatherData.wind_speed} m/s</p>
                     <p className="text-lg">Humidity: {currentWeatherData.humidity}%</p>

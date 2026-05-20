@@ -14,11 +14,11 @@ export default function DailyWeatherCard({dailyWeatherData,day,unit}:DailyWeathe
 
     return(
         <>
-            <div className="rounded-lg flex flex-col items-center py-1 gap-1 backdrop-blur-md shadow-sm border-slate-200/50 bg-white/70 text-slate-900 dark:text-white dark:bg-[#1E1E20]">
+            <div className="rounded-lg flex flex-col items-center py-1 gap-1 backdrop-blur-md shadow-sm border border-slate-200/50 bg-white/70 dark:border-white/8 dark:shadow-gray-700/15 dark:bg-[#1E1F20]/70">
                 <p className="text-lg">{day}</p>
                 <img className="w-15 h-15 object-contain" src={iconPath} alt="weather-icon"/>
                 <p>{UnitConverter(dailyWeatherData.temp.max,unit)} {unit!=="K" && <span>°</span>} <span className="text-gray-700 dark:text-gray-400">{UnitConverter(dailyWeatherData.temp.min,unit)} {unit!=="K" && <span>°</span>}</span></p>
             </div>
         </>
     );
-}
+}   
