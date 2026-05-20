@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 import { UnitButtons } from "./UnitButtons";
 import { TemperatureUnit } from "@/types/WeatherTypes";
-import { ThemeSwitcher } from "./ThemeSwitcher";
 import { ThemeButtons } from "./ThemeButtons";
 
 interface SettingsTypes{
