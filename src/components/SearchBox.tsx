@@ -49,7 +49,7 @@ function SearchBox({setWeatherOnSearch,setLocationOnSearch,classname}: SearchBox
     }
 
     return(
-        <div className="flex items-center rounded-full px-4 transition-colors duration-300 backdrop-blur-md shadow-sm border border-slate-200/50 focus-within:border-slate-300/80 bg-white/70 dark:border dark:border-white/8 dark:focus-within:border-white/20 dark:shadow-gray-700/15 dark:bg-[#1E1F20]/70">
+        <div className="flex items-center rounded-full px-4 transition-colors duration-300 backdrop-blur-md shadow-sm border border-slate-200/50 focus-within:border-slate-300/80 bg-white/70 dark:border dark:border-white/8 dark:focus-within:border-white/15 dark:shadow-gray-700/15 dark:bg-[#1E1F20]/70">
             <input 
                 className={cn("text-center rounded-lg p-1 grow bg-transparent outline-none text-slate-900 dark:text-white",classname)}
                 type="text" 
