@@ -13,7 +13,7 @@ import { FaMapMarkerAlt } from "react-icons/fa";
 import { OnClickCurrentLocation } from "@/utils/OnClickCurrentLocation";
 import { useTheme } from "next-themes";
 import { Settings } from 'lucide-react';
-import { SettingsPage } from "@/components/settings/tempfilename";
+import { SettingsPage } from "@/components/settings/SettingsPage";
 
 export default function page(){
 
