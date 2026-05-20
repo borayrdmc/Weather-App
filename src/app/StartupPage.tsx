@@ -33,7 +33,7 @@ export function StartupPage({setWeatherData,setLocationData,setIsSettingsOpen,se
             <div className="flex-1 flex flex-col items-center justify-center w-full max-w-5xl mx-auto">
                 
                 <div className="text-center mb-12">
-                    <h1 className="text-8xl md:text-9xl font-black text-slate-900 dark:text-white ">Weatherly</h1>
+                    <h1 className="text-8xl md:text-9xl font-black text-slate-900 dark:text-slate-200 ">Weatherly</h1>
                 </div>
 
 
@@ -41,8 +41,8 @@ export function StartupPage({setWeatherData,setLocationData,setIsSettingsOpen,se
 
                     <div className="flex flex-col gap-4 text-center">
 
-                        <h2 className="text-3xl font-medium text-black dark:text-white ">Ready to explore the <span className="text-gray-400">skies?</span></h2>
-                        <p className="text-lg max-w-xl mx-auto font-light text-gray-700 dark:text-gray-500">Detailed weather forecasts for<span className="text-white text-lg font-bold"> over 250.000</span> cities. Just type, search and discover <span className="text-white text-lg font-bold">all around the world.</span> Try it yourself.</p>
+                        <h2 className="text-3xl font-medium text-slate-900 dark:text-slate-200 ">Ready to explore the <span className="text-gray-400">skies?</span></h2>
+                        <p className="text-lg max-w-xl mx-auto font-light text-gray-700 dark:text-gray-500">Detailed weather forecasts for<span className="text-slate-900 dark:text-slate-200 text-lg font-bold"> over 250.000</span> cities. Just type, search and discover weathers <span className="text-slate-900 dark:text-slate-200 text-lg font-bold">all around the world.</span> Try it yourself.</p>
                     </div>
 
                     <div className="w-full flex flex-col items-center gap-6">
