@@ -14,7 +14,7 @@ export function StartupPage({setWeatherData,setLocationData}: StartupPageTypes){
 
     return(
 
-        <div className="w-full min-h-screen flex flex-col items-center justify-between p-8 relative overflow-hidden bg-white dark:bg-[#131314]  ">
+        <div className="w-full min-h-screen flex flex-col items-center justify-between p-8 relative overflow-hidden bg-slate-100 dark:bg-[#131314]  ">
             
             <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-blue-500/5 blur-[120px] rounded-full" />
             <div className="absolute top-[-10%] right-[-10%] w-[40%] h-[40%] bg-blue-500/5 blur-[120px] rounded-full" />
@@ -22,7 +22,7 @@ export function StartupPage({setWeatherData,setLocationData}: StartupPageTypes){
             <div className="flex-1 flex flex-col items-center justify-center w-full max-w-5xl mx-auto">
                 
                 <div className="text-center mb-12">
-                    <h1 className="text-8xl md:text-9xl font-black text-black dark:text-white ">Weatherly</h1>
+                    <h1 className="text-8xl md:text-9xl font-black text-slate-900 dark:text-white ">Weatherly</h1>
                 </div>
 
 

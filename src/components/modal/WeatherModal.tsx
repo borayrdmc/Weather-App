@@ -34,11 +34,11 @@ export function CurrentWeatherModal({weatherData,onClickFunction,unit}:CurrentWe
 
     return(
         
-        <div className="fixed inset-0 z-50 flex flex-col items-center justify-center dark:bg-black/50" onClick={()=>onClickFunction(false)}>
+        <div className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-slate-500/10 backdrop-blur-sm dark:bg-black/50 dark:backdrop-blur-sm" onClick={()=>onClickFunction(false)}>
 
-            <div className="relative w-full max-w-5xl flex flex-col items-center p-6 rounded-2xl overflow-hidden bg-amber-100 dark:shadow-lg dark:shadow-gray-500/15 dark:bg-[#1E1F20]" onClick={(e)=>e.stopPropagation()}>
+            <div className="relative w-full max-w-5xl flex flex-col items-center p-4 rounded-2xl overflow-hidden backdrop-blur-md shadow-sm border border-slate-200/50 bg-white dark:shadow-lg dark:border-none dark:shadow-gray-500/15 dark:bg-[#1E1F20]" onClick={(e)=>e.stopPropagation()}>
 
-                <button className="absolute top-2 right-4 cursor-pointer  text-xl font-semibold transition-colors duration-200 dark:text-gray-400 dark:hover:text-white" onClick={() => onClickFunction(false)}>✕</button>
+                <button className="absolute top-1 right-3 cursor-pointer text-xl font-semibold transition-colors duration-200 text-slate-900 hover:text-slate-600 dark:text-gray-400 dark:hover:text-white" onClick={() => onClickFunction(false)}>✕</button>
                 <CurrentWeatherCardModal currentWeatherData={currentWeatherData} unit={unit}/>
                 <WeatherGraph data={hourlyWeatherData}/>
                 <HourlyWeatherCardGrid hourlyWeatherData={hourlyWeatherData} timezone={timezone} unit={unit} />

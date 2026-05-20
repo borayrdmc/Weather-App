@@ -29,14 +29,14 @@ export function WeatherGraph({data}: { data: HourlyWeatherTypes[]}){
             />
             <YAxis hide={true} domain={['dataMin - 5', 'dataMax + 5']} />
             <Area 
-                type="monotone" 
+                type="natural" 
                 dataKey="temp"  
                 stroke="#EAB308" 
                 fillOpacity={1} 
                 fill="url(#colorTemp)" 
                 activeDot={false}
                 strokeWidth={2}
-                label={({ x, y, value }) => <text x={x} y={y} fill="#fff" fontSize={12} textAnchor="middle" dy={-10}>{value}°</text>}
+                label={({ x, y, value }) => <text x={x} y={y} fill="fill-slate" fontSize={12} textAnchor="middle" dy={-10}>{value}°</text>}
             />
             </AreaChart>
         </ResponsiveContainer>

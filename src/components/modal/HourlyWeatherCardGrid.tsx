@@ -45,7 +45,7 @@ export function HourlyWeatherCardGrid({hourlyWeatherData,timezone,unit}:HourlyWe
 
         <div className="w-full max-w-5xl flex flex-row justify-center items-center">
 
-            <button className="h-fit text-2xl cursor-pointer text-gray-700 hover:text-gray-800 dark:hover:text-white dark:text-gray-400" onClick={prevSlide} disabled={isPrevDisabled}>
+            <button className="h-fit text-2xl cursor-pointer text-slate-900 hover:text-slate-600 dark:hover:text-white dark:text-gray-400" onClick={prevSlide} disabled={isPrevDisabled}>
                 <GoChevronLeft/>
             </button>
 
@@ -53,7 +53,7 @@ export function HourlyWeatherCardGrid({hourlyWeatherData,timezone,unit}:HourlyWe
                 {HourlyWeatherGridItems}
             </div>
 
-            <button className="h-fit text-2xl cursor-pointer text-gray-700 hover:text-gray-800 dark:hover:text-white dark:text-gray-400" onClick={nextSlide} disabled={isNextDisabled} >
+            <button className="h-fit text-2xl cursor-pointer text-slate-900 hover:text-slate-600 dark:hover:text-white dark:text-gray-400" onClick={nextSlide} disabled={isNextDisabled} >
                 <GoChevronRight/>
             </button>
 

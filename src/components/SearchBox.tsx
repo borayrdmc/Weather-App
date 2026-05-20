@@ -49,9 +49,9 @@ function SearchBox({setWeatherOnSearch,setLocationOnSearch,classname}: SearchBox
     }
 
     return(
-        <div className="flex items-center rounded-full px-4 transition-colors duration-300 bg-gray-700 dark:bg-[#1E1F20] dark:focus-within:bg-[#252729]">
+        <div className="flex items-center rounded-full px-4 transition-colors duration-300 backdrop-blur-md shadow-sm border border-slate-200/50 focus-within:border-slate-300/80 bg-white/70 dark:border-none dark:bg-[#1E1F20] dark:focus-within:bg-[#252729]">
             <input 
-                className={cn("text-center rounded-lg p-1 grow bg-transparent outline-none text-black dark:text-white",classname)}
+                className={cn("text-center rounded-lg p-1 grow bg-transparent outline-none text-slate-900 dark:text-white",classname)}
                 type="text" 
                 disabled={isInputLoading} //Disable input while process
                 placeholder={isInputLoading?"Searching..." : "Enter a location"}
@@ -59,7 +59,7 @@ function SearchBox({setWeatherOnSearch,setLocationOnSearch,classname}: SearchBox
                 onChange={(event)=>setCityNameInput(event.target.value)}
                 onKeyDown={(e)=>e.key==="Enter" && handleSearch()}>
             </input>
-            <button className="text-white cursor-pointer" onClick={handleSearch} disabled={isInputLoading}>🔍︎</button>
+            <button className="text-slate-900 hover:text-slate-700 dark:text-white cursor-pointer" onClick={handleSearch} disabled={isInputLoading}>🔍︎</button>
         </div>
     );
 }
