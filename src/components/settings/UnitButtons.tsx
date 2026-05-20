@@ -7,9 +7,9 @@ interface UnitButtonsTypes{
 
 export function UnitButtons({unitSetter,unit}:UnitButtonsTypes){
 
-    const BASE_TEMPLATE="p-2 rounded-md cursor-pointer transition-all duration-200 text-center"
-    const NOT_ACTIVE_TEMPLATE ="bg-amber-100 text-black dark:bg-[#1E1F20] dark:text-white dark:hover:bg-[#252729]"
-    const ACTIVE_TEMPLATE="bg-black dark:bg-white"
+    const BASE_TEMPLATE="p-2 rounded-md cursor-pointer transition-all duration-200 text-center transition-colors duration-300 ease-in-out"
+    const NOT_ACTIVE_TEMPLATE ="dark:border dark:text-slate-200 dark:border-white/8 dark:hover:border-white/15 dark:shadow-gray-700/15 dark:bg-[#1E1F20]/70 shadow-sm border border-slate-200/50 hover:border-slate-300/80 bg-white/70" 
+    const ACTIVE_TEMPLATE="bg-slate-200 text-slate-900 border-slate-300/80 shadow-md dark:bg-white/90 dark:text-slate-900"
 
     return(
         

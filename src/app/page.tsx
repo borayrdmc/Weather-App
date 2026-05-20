@@ -11,8 +11,9 @@ import { Footer } from "@/components/Footer";
 import { StartupPage } from "./StartupPage";
 import { FaMapMarkerAlt } from "react-icons/fa";
 import { OnClickCurrentLocation } from "@/utils/OnClickCurrentLocation";
-import { Settings } from "@/components/settings/Settings";
+import { SettingsPage} from "@/components/settings/settingspage";
 import { useTheme } from "next-themes";
+import { Settings } from 'lucide-react';
 
 export default function page(){
 
@@ -38,19 +39,19 @@ export default function page(){
             <div className="absolute top-[-10%] left-[-10%] w-[30%] h-[30%] bg-blue-500/5 blur-[120px] rounded-full" />
             <div className="absolute top-[-10%] right-[-10%] w-[30%] h-[30%] bg-blue-500/5 blur-[120px] rounded-full" />
 
-            <div className="absolute top-3 right-6 cursor-pointer" onClick={()=>setIsSettingsOpen(true)}>⚙️</div>
+            <div className="absolute top-3 right-6 cursor-pointer" onClick={()=>setIsSettingsOpen(true)}><Settings className="hover:text-slate-700 dark:hover:text-white"></Settings></div>
 
             <div className="w-full max-w-4xl flex flex-col items-center justify-center gap-4 grow">
 
                 <div className="w-full max-w-4xl flex flex-row justify-between items-center">
-                    {locationData && <div className="font-bold text-2xl ml-2 -mb-2 text-slate-900 dark:text-white">Location: {locationData.name}, {locationData.country}</div>}
+                    {locationData && <div className="font-bold text-2xl ml-2 -mb-2 text-slate-900 dark:text-slate-200">Location: {locationData.name}, {locationData.country}</div>}
                     <div className="flex items-center gap-2"><SearchBox setWeatherOnSearch={setWeatherData} setLocationOnSearch={setLocationData}></SearchBox><FaMapMarkerAlt onClick={()=>OnClickCurrentLocation({setWeatherData,setLocationData})} className="cursor-pointer text-xl text-slate-900 hover:text-slate-700 dark:text-slate-200 dark:hover:text-white"/></div>
                 </div>
                 
                 {weatherData && <CurrentWeatherCard currentWeatherData={weatherData.current} onClickFunction={setIsModalOpen} unit={unit}/>}
 
                 {weatherData && isModalOpen && <CurrentWeatherModal weatherData={weatherData} onClickFunction={setIsModalOpen}  unit={unit}/>}
-                {isSettingsOpen && <Settings onClickFunction={setIsSettingsOpen} unitSetter={setUnit} unit={unit} theme={theme} setTheme={setTheme}/>}
+                {isSettingsOpen && <SettingsPage onClickFunction={setIsSettingsOpen} unitSetter={setUnit} unit={unit} theme={theme} setTheme={setTheme}/>}
 
                 {weatherData && <DailyWeatherCardGrid dailyWeatherData={weatherData.daily} timezone={weatherData.timezone} unit={unit}/>}
             </div>
