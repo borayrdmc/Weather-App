@@ -2,7 +2,8 @@
     "search":{
         "location":"Konum:",
         "placeholder":"Konum girin",
-        "searching":"Aranıyor..."
+        "searching":"Aranıyor...",
+        "currentlocationbutton":"Mevcut konumu kullan"
     },
 
     "settings":{
@@ -22,7 +23,7 @@
     },
     "startup":{
         "subtitle":"<strong>Gökyüzünü</strong> keşfetmeye hazır mısın?",
-        "summary":"<strong>250.000'den fazla</strong> şehir için detaylı hava tahminlerini inceleyin. <strong>Dünyanın dört bir yanından</strong> gelen hava durumları sadece bir arama uzağınızda. Hemen deneyin.",
+        "summary":"<strong>250.000'den fazla</strong> şehir için detaylı hava tahminlerini inceleyin. <strong>Dünyanın dört bir yanından</strong> gelen hava durumları sadece bir arama uzağınızda.",
         "social_proof": "Dünya genelinde <strong>2</strong> kullanıcı tarafından kullanılıyor :)"
     },
     "footer":{

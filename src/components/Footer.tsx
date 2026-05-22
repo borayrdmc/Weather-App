@@ -9,7 +9,7 @@ export function Footer(){
 
             <a className="hover:text-blue-500 hover:underline" target="_blank" rel="noopener" href="https://github.com/borayrdmc">{languageDictionary.footer.github}</a>
             <a className="hover:text-blue-500 hover:underline" target="_blank" rel="noopener" href="<mailto>:bborayrdmc@gmail.com">{languageDictionary.footer.mail}</a>
-            <a className="hover:text-blue-500 hover:underline" target="_blank" rel="noopener" href="https://linkedin.com/in/gokhanpercem">{languageDictionary.footer.mail}</a>
+            <a className="hover:text-blue-500 hover:underline" target="_blank" rel="noopener" href="https://linkedin.com/in/gokhanpercem">{languageDictionary.footer.linkedin}</a>
             <p>© Bora Yardımcı</p>
         </div>
     );

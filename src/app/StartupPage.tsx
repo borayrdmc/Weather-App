@@ -44,8 +44,8 @@ export function StartupPage({setWeatherData,setLocationData,setIsSettingsOpen,se
 
                     <div className="flex flex-col gap-4 text-center">
 
-                        <h2 dangerouslySetInnerHTML={{ __html: languageDictionary.startup.subtitle }} className="text-3xl font-medium text-slate-900 dark:text-slate-200 [&>strong]:text-gray-400 ">{languageDictionary.startup.subtitle}</h2>
-                        <p  dangerouslySetInnerHTML={{ __html: languageDictionary.startup.subtitle }} className="text-lg max-w-xl mx-auto font-light text-gray-700 dark:text-gray-500 [&>strong]:text-slate-900 [&>strong]:dark:text-slate-200  ">{languageDictionary.startup.summary}</p>
+                        <h2 dangerouslySetInnerHTML={{ __html: languageDictionary.startup.subtitle }} className="text-3xl font-medium text-slate-900 dark:text-slate-200 [&>strong]:text-gray-400 "></h2>
+                        <p dangerouslySetInnerHTML={{ __html: languageDictionary.startup.summary }} className="text-lg max-w-xl mx-auto font-light text-gray-700 dark:text-gray-500 [&>strong]:text-slate-900 [&>strong]:dark:text-slate-200  "></p>
                     </div>
 
                     <div className="w-full flex flex-col items-center gap-6">
@@ -60,7 +60,7 @@ export function StartupPage({setWeatherData,setLocationData,setIsSettingsOpen,se
 
 
                 <div className="mt-16 flex flex-col items-center opacity-60">
-                    <p dangerouslySetInnerHTML={{ __html: languageDictionary.startup.subtitle }} className="text-gray-700 dark:text-gray-400 text-xs [&>strong]:font-bold [&>strong]:text-black [&>strong]:dark:text-white">{languageDictionary.startup.social_proof}</p>
+                    <p dangerouslySetInnerHTML={{ __html: languageDictionary.startup.social_proof }} className="text-gray-700 dark:text-gray-400 text-xs [&>strong]:font-bold [&>strong]:text-black [&>strong]:dark:text-white"></p>
                 </div>
 
             </div>

@@ -2,7 +2,8 @@
     "search":{
         "location":"Location:",
         "placeholder":"Enter a location",
-        "searching":"Searching..."
+        "searching":"Searching...",
+        "currentlocationbutton":"Use current location"
     },
 
     "settings":{
