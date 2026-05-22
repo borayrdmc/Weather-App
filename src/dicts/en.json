@@ -1,0 +1,30 @@
+{
+    "search":{
+        "location":"Location:",
+        "placeholder":"Enter a location",
+        "searching":"Searching..."
+    },
+
+    "settings":{
+        "dark_theme":"Dark",
+        "light_theme":"Light"
+    },
+
+    "currentweather":{
+        "uv_index":"UV Index:",
+        "wind_speed":"Wind Speed:",
+        "humidity":"Humidity:",
+        "feels_like":"Feels Like:",
+        "cardtitle":"Daily Weather Forecast"
+    },
+    "startup":{
+        "subtitle":"Ready to explore the <strong>skies<strong/>?",
+        "summary":"Detailed weather forecasts for <strong>over 250.000<strong/> cities. Just type, search and discover weathers <strong>all around the world<strong/>. Try it yourself.",
+        "social_proof": "Trusted by <strong>2<strong/> users worldwide :)"
+    },
+    "footer":{
+        "github":"My GitHub",
+        "mail":"My Mail",
+        "linkedin":"My LinkedIn"
+    }
+}

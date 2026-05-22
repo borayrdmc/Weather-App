@@ -1,0 +1,30 @@
+{
+    "search":{
+        "location":"Konum:",
+        "placeholder":"Konum girin",
+        "searching":"Aranıyor..."
+    },
+
+    "settings":{
+        "dark_theme":"Koyu",
+        "light_theme":"Açık"
+    },
+
+    "currentweather":{
+        "uv_index":"UV İndeksi:",
+        "wind_speed":"Rüzgar Hızı:",
+        "humidity":"Nem Oranı:",
+        "feels_like":"Hissedilen:",
+        "cardtitle":"Günlük Hava Durumu"
+    },
+    "startup":{
+        "subtitle":"<strong>Gökyüzünü<strong/> keşfetmeye hazır mısın?",
+        "summary":"<strong>250.000'den fazla<strong/> şehir için detaylı hava tahminlerini inceleyin. <strong>Dünyanın dört bir yanından<strong/> gelen hava durumları sadece bir arama uzağınızda. Hemen deneyin.",
+        "social_proof": "Dünya genelinde <strong>2<strong/> kullanıcı tarafından kullanılıyor :)"
+    },
+    "footer":{
+        "github":"GitHub Sayfam",
+        "mail":"Mail Adresim",
+        "linkedin":"LinkedIn Sayfam"
+    }
+}
