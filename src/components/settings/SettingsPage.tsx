@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { UnitButtons } from "./UnitButtons";
 import { TemperatureUnit } from "@/types/WeatherTypes";
 import { ThemeButtons } from "./ThemeButtons";
+import { LanguageButtons } from "./LanguageButtons";
 
 interface SettingsTypes{
     onClickFunction:(bool:boolean)=>void;
@@ -38,9 +39,11 @@ export function SettingsPage({onClickFunction,unitSetter,unit,theme,setTheme}:Se
             <div className="relative w-full max-w-lg flex flex-col gap-4 items-center p-4 rounded-lg border bg-slate-100 shadow-sm border-slate-200/50 dark:border dark:bg-[#131314] dark:shadow-gray-700/15 dark:border-white/8" onClick={(e)=>e.stopPropagation()}>
 
                 <button className="absolute top-2 right-4  cursor-pointer text-xl font-semibold transition-colors duration-200 text-gray-700 dark:text-gray-400 dark:hover:text-white" onClick={()=>onClickFunction(false)}>✕</button>
-                <UnitButtons unitSetter={unitSetter} unit={unit}/>
 
+                <UnitButtons unitSetter={unitSetter} unit={unit}/>
                 <ThemeButtons theme={theme} themeSetter={setTheme}/>
+                <LanguageButtons/>
+                
             </div>
         </div>
     );
