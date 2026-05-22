@@ -33,7 +33,6 @@ export default function DailyWeatherCardGrid({dailyWeatherData,timezone,unit}:Da
             <div className="grid grid-cols-8 gap-2 items-center">
                 {DailyWeatherGridItems}
             </div>
-            
         </div>
     );
 }
