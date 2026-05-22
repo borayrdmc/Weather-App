@@ -11,9 +11,10 @@ interface CurrentWeatherCardTypes{
 
 export default function CurrentWeatherCard({currentWeatherData,onClickFunction,unit}:CurrentWeatherCardTypes){
 
-    const dayName = new Date().toLocaleDateString("en-US", { weekday: "long" });
     const iconPath = WeatherIconSwitcher(currentWeatherData.weather[0].icon, currentWeatherData.weather[0].id);
-    const {languageDictionary} = useLanguage();
+    const {languageDictionary,language} = useLanguage();
+
+    const dayName = new Date().toLocaleDateString(language, { weekday: "long" });
 
     return(
 

@@ -10,10 +10,10 @@ interface CurrentWeatherCardModalTypes{
 
 export default function CurrentWeatherCardModal({currentWeatherData,unit}:CurrentWeatherCardModalTypes){
 
-    const dayName = new Date().toLocaleDateString("en-US", { weekday: "long" });
-
     const iconPath = WeatherIconSwitcher(currentWeatherData.weather[0].icon, currentWeatherData.weather[0].id);
-    const {languageDictionary} = useLanguage();
+    const {languageDictionary,language} = useLanguage();
+
+    const dayName = new Date().toLocaleDateString(language, { weekday: "long" });
     
     return(
 
@@ -24,11 +24,11 @@ export default function CurrentWeatherCardModal({currentWeatherData,unit}:Curren
                 <img className="w-30 h-30 object-contain" src={iconPath} alt="current weather image"></img>
 
                 <div className="flex flex-row items-center">
-                    <p className="text-6xl font-bold leading-none p-0">{Math.round(currentWeatherData.temp)}</p>
+                    <p className="text-6xl font-bold leading-none p-0">{UnitConverter(Math.round(currentWeatherData.temp),unit)}</p>
 
                     <div className="flex flex-col">
                         <p className="text-4xl font-bold leading-none">°</p>
-                        <p className="mx-2">C</p>
+                        <p className="mx-2">{unit}</p>
                     </div>
                 </div>
                 

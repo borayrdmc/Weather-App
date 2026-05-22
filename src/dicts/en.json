@@ -1,6 +1,6 @@
 {
     "search":{
-        "location":"Location:",
+        "location":"Location",
         "placeholder":"Enter a location",
         "searching":"Searching...",
         "currentlocationbutton":"Use current location"

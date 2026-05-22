@@ -1,6 +1,6 @@
 {
     "search":{
-        "location":"Konum:",
+        "location":"Konum",
         "placeholder":"Konum girin",
         "searching":"Aranıyor...",
         "currentlocationbutton":"Mevcut konumu kullan"
