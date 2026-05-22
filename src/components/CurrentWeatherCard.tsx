@@ -1,3 +1,4 @@
+import { useLanguage } from "@/contexts/LanguageContext";
 import { CurrentWeatherTypes, TemperatureUnit } from "@/types/WeatherTypes";
 import { UnitConverter } from "@/utils/UnitConverter";
 import { WeatherIconSwitcher } from "@/utils/WeatherIconSwitcher";
@@ -11,8 +12,8 @@ interface CurrentWeatherCardTypes{
 export default function CurrentWeatherCard({currentWeatherData,onClickFunction,unit}:CurrentWeatherCardTypes){
 
     const dayName = new Date().toLocaleDateString("en-US", { weekday: "long" });
-
     const iconPath = WeatherIconSwitcher(currentWeatherData.weather[0].icon, currentWeatherData.weather[0].id);
+    const {languageDictionary} = useLanguage();
 
     return(
 
@@ -32,15 +33,15 @@ export default function CurrentWeatherCard({currentWeatherData,onClickFunction,u
                 </div>
                 
                 <div className="flex flex-col items-start text-slate-700 dark:text-slate-100">
-                    <p className="text-lg">UV Index: {currentWeatherData.uvi}</p>
-                    <p className="text-lg">Wind Speed: {currentWeatherData.wind_speed} m/s</p>
-                    <p className="text-lg">Humidity: {currentWeatherData.humidity}%</p>
-                    <p className="text-lg">Feels Like: {UnitConverter(currentWeatherData.feels_like,unit)}°{unit}</p>
+                    <p className="text-lg">{languageDictionary.currentweather.uv_index}: {currentWeatherData.uvi}</p>
+                    <p className="text-lg">{languageDictionary.currentweather.wind_speed}: {currentWeatherData.wind_speed} m/s</p>
+                    <p className="text-lg">{languageDictionary.currentweather.humidity}: {currentWeatherData.humidity}%</p>
+                    <p className="text-lg">{languageDictionary.currentweather.feels_like}: {UnitConverter(currentWeatherData.feels_like,unit)}°{unit}</p>
                 </div>
             </div>
 
             <div className="flex flex-col text-right">
-                <p className="font-bold text-2xl">Daily Weather Forecast</p>
+                <p className="font-bold text-2xl">{languageDictionary.currentweather.cardtitledaily}</p>
                 <p className="text-lg">{dayName}</p>
                 <p className="text-lg capitalize">{currentWeatherData.weather[0].description}</p>
             </div>

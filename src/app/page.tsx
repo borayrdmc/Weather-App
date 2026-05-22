@@ -14,6 +14,7 @@ import { OnClickCurrentLocation } from "@/utils/OnClickCurrentLocation";
 import { useTheme } from "next-themes";
 import { Settings } from 'lucide-react';
 import { SettingsPage } from "@/components/settings/SettingsPage";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function page(){
 
@@ -26,6 +27,7 @@ export default function page(){
     const [unit,setUnit] = useState<"C"|"K"|"F">("C");
 
     const {theme,setTheme} = useTheme();
+    const {languageDictionary} = useLanguage();
 
     if(!weatherData){
         return(
@@ -46,7 +48,7 @@ export default function page(){
             <div className="w-full max-w-4xl flex flex-col items-center justify-center gap-4 grow">
 
                 <div className="w-full max-w-4xl flex flex-row justify-between items-center">
-                    {locationData && <div className="font-bold text-2xl ml-2 -mb-2 text-slate-900 dark:text-slate-200">Location: {locationData.name}, {locationData.country}</div>}
+                    {locationData && <div className="font-bold text-2xl ml-2 -mb-2 text-slate-900 dark:text-slate-200">{languageDictionary.search.location}: {locationData.name}, {locationData.country}</div>}
                     <div className="flex items-center gap-2"><SearchBox setWeatherOnSearch={setWeatherData} setLocationOnSearch={setLocationData}></SearchBox><FaMapMarkerAlt onClick={()=>OnClickCurrentLocation({setWeatherData,setLocationData})} className="cursor-pointer text-xl text-slate-900 hover:text-slate-700 dark:text-slate-200 dark:hover:text-white"/></div>
                 </div>
                 

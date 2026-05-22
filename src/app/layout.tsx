@@ -1,11 +1,12 @@
 import { ThemeProvider } from '@/components/ThemesProvider';
 import './app.css';
 import { Toaster } from 'react-hot-toast';
+import { LanguageProvider } from '@/contexts/LanguageContext';
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
     return (
         <html lang="en" suppressHydrationWarning>
-            <body className='overflow-x-hidden'><ThemeProvider>{children}</ThemeProvider><Toaster position="top-center" reverseOrder={false} toastOptions={{error:{style:{background: '#1E1F20',color:'#fff'},duration:2000,iconTheme:{primary:'#fff',secondary: '#131314',}}}}/></body>   
+            <body className='overflow-x-hidden'><ThemeProvider><LanguageProvider>{children}</LanguageProvider></ThemeProvider><Toaster position="top-center" reverseOrder={false} toastOptions={{error:{style:{background: '#1E1F20',color:'#fff'},duration:2000,iconTheme:{primary:'#fff',secondary: '#131314',}}}}/></body>   
         </html>
     );
 }

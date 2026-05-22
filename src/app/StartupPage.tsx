@@ -6,6 +6,7 @@ import { WeatherDataTypes } from "@/types/WeatherTypes";
 import { CoordinateTypes } from "@/types/CoordinateTypes";
 import { Settings } from "lucide-react";
 import { SettingsPage } from "@/components/settings/SettingsPage";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 interface StartupPageTypes{
     setWeatherData:(data: WeatherDataTypes)=> void; //Incoming function has to have a data parameter(which follows weather data types) and mustn't return => setWeather(data) for an example
@@ -19,6 +20,8 @@ interface StartupPageTypes{
 }
 
 export function StartupPage({setWeatherData,setLocationData,setIsSettingsOpen,setUnit,setTheme,isSettingsOpen,unit,theme}: StartupPageTypes){
+
+    const { languageDictionary } = useLanguage();
 
     return(
 
@@ -41,8 +44,8 @@ export function StartupPage({setWeatherData,setLocationData,setIsSettingsOpen,se
 
                     <div className="flex flex-col gap-4 text-center">
 
-                        <h2 className="text-3xl font-medium text-slate-900 dark:text-slate-200 ">Ready to explore the <span className="text-gray-400">skies?</span></h2>
-                        <p className="text-lg max-w-xl mx-auto font-light text-gray-700 dark:text-gray-500">Detailed weather forecasts for<span className="text-slate-900 dark:text-slate-200 text-lg font-bold"> over 250.000</span> cities. Just type, search and discover weathers <span className="text-slate-900 dark:text-slate-200 text-lg font-bold">all around the world.</span> Try it yourself.</p>
+                        <h2 dangerouslySetInnerHTML={{ __html: languageDictionary.startup.subtitle }} className="text-3xl font-medium text-slate-900 dark:text-slate-200 [&>strong]:text-gray-400 ">{languageDictionary.startup.subtitle}</h2>
+                        <p  dangerouslySetInnerHTML={{ __html: languageDictionary.startup.subtitle }} className="text-lg max-w-xl mx-auto font-light text-gray-700 dark:text-gray-500 [&>strong]:text-slate-900 [&>strong]:dark:text-slate-200  ">{languageDictionary.startup.summary}</p>
                     </div>
 
                     <div className="w-full flex flex-col items-center gap-6">
@@ -57,7 +60,7 @@ export function StartupPage({setWeatherData,setLocationData,setIsSettingsOpen,se
 
 
                 <div className="mt-16 flex flex-col items-center opacity-60">
-                    <p className="text-gray-700 dark:text-gray-400 text-xs">Trusted by <span className="font-bold text-black dark:text-white">2</span> users worldwide :)</p>
+                    <p dangerouslySetInnerHTML={{ __html: languageDictionary.startup.subtitle }} className="text-gray-700 dark:text-gray-400 text-xs [&>strong]:font-bold [&>strong]:text-black [&>strong]:dark:text-white">{languageDictionary.startup.social_proof}</p>
                 </div>
 
             </div>

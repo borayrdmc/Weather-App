@@ -5,6 +5,7 @@ import toast from "react-hot-toast";
 import { WeatherDataTypes } from "@/types/WeatherTypes";
 import { CoordinateTypes } from "@/types/CoordinateTypes";
 import { CombinedDataTypes } from "@/app/api/weather/route";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 interface SearchBoxTypes{
     setWeatherOnSearch:(data: WeatherDataTypes)=> void; //Incoming function has to have a data parameter(which follows weather data types) and mustn't return => setWeather(data) for an example
@@ -16,6 +17,7 @@ function SearchBox({setWeatherOnSearch,setLocationOnSearch,classname}: SearchBox
 
     const [cityNameInput,setCityNameInput]=useState("");
     const [isInputLoading,setIsInputLoading]=useState(false);
+    const {languageDictionary} = useLanguage();
 
     const handleSearch= async ()=>{
 
@@ -54,7 +56,7 @@ function SearchBox({setWeatherOnSearch,setLocationOnSearch,classname}: SearchBox
                 className={cn("text-center rounded-lg p-1 grow bg-transparent outline-none text-slate-900 dark:text-white",classname)}
                 type="text" 
                 disabled={isInputLoading} //Disable input while process
-                placeholder={isInputLoading?"Searching..." : "Enter a location"}
+                placeholder={isInputLoading? languageDictionary.search.searching : languageDictionary.search.placeholder}
                 value={cityNameInput} 
                 onChange={(event)=>setCityNameInput(event.target.value)}
                 onKeyDown={(e)=>e.key==="Enter" && handleSearch()}>
