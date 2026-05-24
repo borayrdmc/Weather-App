@@ -18,6 +18,7 @@ export async function GET(request:NextRequest){
         const cityName = searchParams.get("city");
         const lat=searchParams.get("lat"); //Search params returns strings!
         const lon=searchParams.get("lon");
+        const lang=searchParams.get("lang") || "en";
 
         let geocodingData: (CoordinateTypes | null) = null;
         
@@ -37,7 +38,7 @@ export async function GET(request:NextRequest){
             return Response.json({message:`City not found: ${cityName}`,statusCode:404},{status:404}); //GeoCoding couldnt find anything
         }
 
-        const weatherData = await WeatherDataService(geocodingData.lat, geocodingData.lon); //Request to Weather Service - If success will return response if not go to catch
+        const weatherData = await WeatherDataService(geocodingData.lat, geocodingData.lon,lang); //Request to Weather Service - If success will return response if not go to catch
         
         const combinedData : CombinedDataTypes = {weather:weatherData,location:geocodingData};
 

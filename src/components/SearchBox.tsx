@@ -17,7 +17,7 @@ function SearchBox({setWeatherOnSearch,setLocationOnSearch,classname}: SearchBox
 
     const [cityNameInput,setCityNameInput]=useState("");
     const [isInputLoading,setIsInputLoading]=useState(false);
-    const {languageDictionary} = useLanguage();
+    const {languageDictionary,language} = useLanguage();
 
     const handleSearch= async ()=>{
 
@@ -29,7 +29,7 @@ function SearchBox({setWeatherOnSearch,setLocationOnSearch,classname}: SearchBox
 
             const normalizedCityName = CityNameNormalizer(input);
 
-            const response = await fetch(`/api/weather?city=${encodeURIComponent(normalizedCityName)}`); //Send a fetch request to api/weather router and has a city parameter for geocoding
+            const response = await fetch(`/api/weather?city=${encodeURIComponent(normalizedCityName)}&lang=${language}`); //Send a fetch request to api/weather router and has a city parameter for geocoding
             
             if(!response.ok){
                 const errorData = await response.json();
