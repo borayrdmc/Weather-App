@@ -17,7 +17,7 @@
         "uv_index":"UV İndeksi",
         "wind_speed":"Rüzgar Hızı",
         "humidity":"Nem Oranı",
-        "feels_like":"Hissedilen",
+        "feels_like":"Hissedilen Sıcaklık",
         "cardtitledaily":"Günlük Hava Durumu",
         "cardtitlehourly":"Saatlik Hava Durumu"
     },
