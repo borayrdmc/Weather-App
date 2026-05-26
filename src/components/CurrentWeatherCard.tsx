@@ -44,7 +44,7 @@ export default function CurrentWeatherCard({currentWeatherData,onClickFunction,u
                 </div>
             </div>
 
-            <div className="hidden sm:flex flex-col text-right">
+            <div className="hidden lg:flex flex-col text-right">
                 <p className="font-bold text-2xl">{languageDictionary.currentweather.cardtitledaily}</p>
                 <p className="text-lg">{dayName}</p>
                 <p className="text-lg capitalize">{currentWeatherData.weather[0].description}</p>
