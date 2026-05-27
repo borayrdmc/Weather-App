@@ -72,7 +72,7 @@ export function HourlyWeatherCardGrid({hourlyWeatherData,timezone,unit}:HourlyWe
                 </button>
             </div>
 
-            <div className="flex flex-row justify-center items-center sm:hidden">
+            <div className="flex flex-row justify-center items-center gap-1 sm:hidden">
                 
                 <button className="h-fit text-2xl cursor-pointer text-slate-900 hover:text-slate-600 dark:hover:text-white dark:text-gray-400" onClick={prevSlide} disabled={isPrevDisabled}>
                     <GoChevronLeft/>
