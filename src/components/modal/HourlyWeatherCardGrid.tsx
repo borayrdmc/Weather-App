@@ -13,7 +13,7 @@ export function HourlyWeatherCardGrid({hourlyWeatherData,timezone,unit}:HourlyWe
 
     const [startIndex,setStartIndex] = useState(0);
 
-    const isNextDisabled = startIndex+24>=hourlyWeatherData.length;
+    const isNextDisabled = startIndex===24;
     const isPrevDisabled = startIndex===0;
 
     const nextSlide= ()=>{
@@ -28,7 +28,7 @@ export function HourlyWeatherCardGrid({hourlyWeatherData,timezone,unit}:HourlyWe
         }
     }
 
-    const hourlyData=hourlyWeatherData.slice(startIndex,12+startIndex);
+    const hourlyData=hourlyWeatherData.slice(startIndex,startIndex+12);
 
     const HourlyWeatherGridItems= hourlyData.map((data,index)=>{
 
@@ -41,21 +41,51 @@ export function HourlyWeatherCardGrid({hourlyWeatherData,timezone,unit}:HourlyWe
         }
     )
 
+    const mobileHourlyData=hourlyWeatherData.slice(startIndex,startIndex+6);
+
+    const MobileHourlyWeatherGridItems= mobileHourlyData.map((data,index)=>{
+
+        const date = new Date(data.dt * 1000);
+        const formattedHour = date.toLocaleTimeString("tr-TR", {hour: "2-digit",minute: "2-digit", timeZone:timezone});
+
+            return(
+                <HourlyWeatherCard key={data.dt} hourlyWeatherData={data} hour={formattedHour} unit={unit}/>
+            );
+        }
+    )
+
     return(
 
-        <div className="w-full max-w-5xl flex flex-row justify-center items-center">
+        <div className="w-full max-w-5xl">
 
-            <button className="h-fit text-2xl cursor-pointer text-slate-900 hover:text-slate-600 dark:hover:text-white dark:text-gray-400" onClick={prevSlide} disabled={isPrevDisabled}>
-                <GoChevronLeft/>
-            </button>
+            <div className="hidden sm:flex flex-row justify-center items-center">
+                <button className="h-fit text-2xl cursor-pointer text-slate-900 hover:text-slate-600 dark:hover:text-white dark:text-gray-400" onClick={prevSlide} disabled={isPrevDisabled}>
+                    <GoChevronLeft/>
+                </button>
 
-            <div className="flex-1 grid grid-cols-12 items-center">
-                {HourlyWeatherGridItems}
+                <div className="grid grid-cols-12 items-center grow">
+                    {HourlyWeatherGridItems}
+                </div>
+
+                <button className="h-fit text-2xl cursor-pointer text-slate-900 hover:text-slate-600 dark:hover:text-white dark:text-gray-400" onClick={nextSlide} disabled={isNextDisabled} >
+                    <GoChevronRight/>
+                </button>
             </div>
 
-            <button className="h-fit text-2xl cursor-pointer text-slate-900 hover:text-slate-600 dark:hover:text-white dark:text-gray-400" onClick={nextSlide} disabled={isNextDisabled} >
-                <GoChevronRight/>
-            </button>
+            <div className="flex flex-row justify-center items-center sm:hidden">
+                
+                <button className="h-fit text-2xl cursor-pointer text-slate-900 hover:text-slate-600 dark:hover:text-white dark:text-gray-400" onClick={prevSlide} disabled={isPrevDisabled}>
+                    <GoChevronLeft/>
+                </button>
+
+                <div className="flex sm:grid grid-cols-6 gap-2 items-center grow">
+                    {MobileHourlyWeatherGridItems}
+                </div>
+
+                <button className="h-fit text-2xl cursor-pointer text-slate-900 hover:text-slate-600 dark:hover:text-white dark:text-gray-400" onClick={nextSlide} disabled={isNextDisabled} >
+                    <GoChevronRight/>
+                </button>
+            </div>
 
         </div>
     );

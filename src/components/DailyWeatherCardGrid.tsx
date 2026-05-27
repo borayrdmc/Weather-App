@@ -3,7 +3,6 @@ import DailyWeatherCard from "./DailyWeatherCard";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { GoChevronLeft, GoChevronRight } from "react-icons/go";
 import { useState } from "react";
-import next from "next";
 
 interface DailyWeatherGridTypes{
     dailyWeatherData:DailyWeatherTypes[];
@@ -31,9 +30,23 @@ export default function DailyWeatherCardGrid({dailyWeatherData,timezone,unit}:Da
         }
     }
     
-    const dailyData = dailyWeatherData.slice(startIndex,startIndex+4);
+    const dailyData = dailyWeatherData.slice(startIndex,startIndex+8);
 
     const DailyWeatherGridItems = dailyData.map((data,index) =>{
+
+        const date = new Date(data.dt*1000);
+        
+        const dayName = date.toLocaleDateString(language, {weekday: "short", timeZone: timezone});
+
+            return(
+                <DailyWeatherCard key={data.dt} dailyWeatherData={data} day={dayName} unit={unit}/> 
+            );
+        }
+    )
+
+    const mobileDailyData = dailyWeatherData.slice(startIndex,startIndex+4);
+
+    const MobileDailyWeatherGridItems = mobileDailyData.map((data,index) =>{
 
         const date = new Date(data.dt*1000);
         
@@ -55,7 +68,7 @@ export default function DailyWeatherCardGrid({dailyWeatherData,timezone,unit}:Da
                 </button>
 
                 <div className="grid grid-cols-4 items-center gap-2 grow">
-                    {DailyWeatherGridItems}
+                    {MobileDailyWeatherGridItems}
                 </div>
 
                 <button className="h-fit text-2xl cursor-pointer text-slate-900 hover:text-slate-600 dark:hover:text-white dark:text-gray-400" onClick={nextSlide} disabled={isNextDisabled}>

@@ -22,7 +22,7 @@ export default function CurrentWeatherCard({currentWeatherData,onClickFunction,u
 
             <p className="text-xl text-center lg:hidden">{dayName} {languageDictionary.currentweather.cardtitledaily}</p>
             
-            <div className="flex flex-col items-center lg:flex-row gap-2 lg:gap-5">
+            <div className="flex flex-col items-center lg:flex-row gap-4 lg:gap-5">
 
                 <div className="flex flex-row gap-10 lg:gap-5">
                     <img className="w-30 h-30 lg:w-40 lg:h-40 object-contain" src={iconPath} alt="current weather image"></img>
