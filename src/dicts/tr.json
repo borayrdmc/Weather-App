@@ -10,7 +10,8 @@
         "dark_theme":"Koyu",
         "light_theme":"Açık",
         "english":"İngilizce",
-        "turkish":"Türkçe"
+        "turkish":"Türkçe",
+        "settings":"Ayarlar"
     },
 
     "currentweather":{
