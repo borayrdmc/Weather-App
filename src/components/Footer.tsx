@@ -21,12 +21,12 @@ export function Footer(){
 
     return(
 
-        <div className="grid grid-cols-4 gap-4 lg:gap-12 text-slate-900 dark:text-white border-amber-600 border-2 ">
+        <div className="flex flex-row gap-4 text-slate-900 dark:text-slate-200">
 
             <a className="hover:text-blue-500 hover:underline" target="_blank" href="https://github.com/borayrdmc">{languageDictionary.footer.github}</a>
             <a className="hover:text-blue-500 hover:underline" target="_blank" onClick={handleCopy} href="#">{languageDictionary.footer.mail}</a>
             <a className="hover:text-blue-500 hover:underline" target="_blank" href="https://linkedin.com/in/gokhanpercem">{languageDictionary.footer.linkedin}</a>
             <p>© Bora Yardımcı</p>
-        </div>
+        </div>  
     );
 }
