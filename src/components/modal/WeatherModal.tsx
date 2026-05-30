@@ -38,7 +38,7 @@ export function CurrentWeatherModal({weatherData,onClickFunction,unit}:CurrentWe
 
             <div className="relative w-full max-w-5xl flex flex-col items-center p-4 rounded-2xl overflow-hidden backdrop-blur-md shadow-sm border border-slate-200/50 bg-white dark:shadow-lg dark:border dark:border-white/8 dark:shadow-gray-700/15 dark:bg-[#1E1F20]" onClick={(e)=>e.stopPropagation()}>
 
-                <button className="absolute top-1 right-3 cursor-pointer text-xl font-semibold transition-colors duration-200 text-slate-900 hover:text-slate-600 dark:text-gray-400 dark:hover:text-white" onClick={() => onClickFunction(false)}>✕</button>
+                <button className="absolute top-1 right-3 cursor-pointer text-xl font-semibold transition-colors duration-200 text-slate-900 hover:text-slate-500 dark:text-gray-400 dark:hover:text-white" onClick={() => onClickFunction(false)}>✕</button>
                 <CurrentWeatherCardModal currentWeatherData={currentWeatherData} unit={unit}/>
                 <WeatherGraph data={hourlyWeatherData}/>
                 <HourlyWeatherCardGrid hourlyWeatherData={hourlyWeatherData} timezone={timezone} unit={unit} />
